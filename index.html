@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fernando Giardullo – App per smartphone</title>
+<meta name="description" content="Fernando Giardullo, sviluppatore indipendente: app per iPhone e Android semplici e utili, pensate per la vita di tutti i giorni.">
+<meta name="theme-color" content="#07060f">
+<meta property="og:title" content="Fernando Giardullo – App per smartphone">
+<meta property="og:description" content="App per iPhone e Android semplici e utili. Niente pubblicità, niente registrazioni.">
+<meta property="og:image" content="https://fernandogiardullo.it/radar-scadenze/icona.png">
+<link rel="icon" href="radar-scadenze/icona.png">
+<style>
+  :root {
+    --fondo: #07060f;
+    --testo: #f5f5f7;
+    --tenue: rgba(245, 245, 247, .68);
+    --vetro: rgba(255, 255, 255, .07);
+    --bordo: rgba(255, 255, 255, .14);
+    --viola: #6d5dfc;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--testo);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Sfondo: aurora animata ---------- */
+  .aurora { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+  .aurora span {
+    position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55;
+    will-change: transform;
+  }
+  .aurora .a { width: 60vmax; height: 60vmax; background: #5b3cf5; top: -20vmax; left: -15vmax; animation: giro1 22s ease-in-out infinite alternate; }
+  .aurora .b { width: 50vmax; height: 50vmax; background: #0fb5c9; bottom: -22vmax; right: -12vmax; animation: giro2 26s ease-in-out infinite alternate; }
+  .aurora .c { width: 38vmax; height: 38vmax; background: #d6336c; top: 35%; left: 45%; opacity: .35; animation: giro3 30s ease-in-out infinite alternate; }
+  @keyframes giro1 { to { transform: translate(18vmax, 14vmax) scale(1.15); } }
+  @keyframes giro2 { to { transform: translate(-16vmax, -12vmax) scale(1.1); } }
+  @keyframes giro3 { to { transform: translate(-22vmax, 10vmax) scale(.85); } }
+
+  /* griglia sottile che sfuma verso i bordi */
+  .griglia {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+            mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  }
+
+  /* ---------- Struttura ---------- */
+  .schermo { min-height: 100svh; display: flex; flex-direction: column; padding: 20px 16px calc(20px + env(safe-area-inset-bottom)); max-width: 1100px; margin: 0 auto; }
+  .testata { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .marchio { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 700; }
+  .sigla {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, #7c6cff, #0fb5c9); color: #fff;
+    display: grid; place-items: center; font-size: 15px; letter-spacing: .5px;
+  }
+  .menu { display: flex; gap: 20px; }
+  .menu a { color: var(--tenue); text-decoration: none; font-weight: 600; }
+  .menu a:hover { color: var(--testo); }
+
+  .centro { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 48px 0; }
+  .ciao {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    padding: 6px 14px; border-radius: 99px; background: var(--vetro); border: 1px solid var(--bordo);
+    font-size: 14px; font-weight: 600; color: var(--tenue); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .ciao i { width: 8px; height: 8px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
+  h1 {
+    font-size: clamp(44px, 10.5vw, 104px); line-height: .98; letter-spacing: -0.035em;
+    margin: 22px 0 22px; font-weight: 800;
+  }
+  h1 .sfumato {
+    background: linear-gradient(90deg, #a99bff, #52e0f0 55%, #ff8fb8);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sotto { font-size: clamp(18px, 2.4vw, 22px); color: var(--tenue); max-width: 32em; margin: 0; }
+
+  .azioni { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+  .bottone {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 50px; padding: 0 24px;
+    border-radius: 99px; font-weight: 700; text-decoration: none; transition: transform .15s, background .15s;
+  }
+  .bottone:hover { transform: translateY(-2px); }
+  .pieno { background: #fff; color: #0b0a14; }
+  .vetro { background: var(--vetro); color: var(--testo); border: 1px solid var(--bordo); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .bottone:focus-visible, .menu a:focus-visible, .marchio:focus-visible { outline: 3px solid #52e0f0; outline-offset: 3px; }
+
+  .principi { display: flex; gap: 10px 24px; flex-wrap: wrap; margin-top: 56px; color: var(--tenue); font-size: 15px; }
+  .principi span::before { content: "✦ "; color: #a99bff; }
+
+  footer { color: rgba(245,245,247,.45); font-size: 14px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aurora span { animation: none; }
+    .bottone { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+<div class="griglia" aria-hidden="true"></div>
+
+<div class="schermo">
+  <header class="testata">
+    <a class="marchio" href="./"><span class="sigla">FG</span>Fernando Giardullo</a>
+    <nav class="menu">
+      <a href="radar-scadenze/">App</a>
+    </nav>
+  </header>
+
+  <main class="centro">
+    <span class="ciao"><i></i>Sviluppatore indipendente</span>
+    <h1>App per smartphone,<br><span class="sfumato">semplici e utili.</span></h1>
+    <p class="sotto">Sono Fernando. Creo app pensate per la vita di tutti i giorni: chiare da usare, rispettose dei tuoi dati.</p>
+    <div class="azioni">
+      <a class="bottone pieno" href="radar-scadenze/">Scopri le mie app →</a>
+      <a class="bottone vetro" href="mailto:giardullo1988@gmail.com">Scrivimi</a>
+    </div>
+    <div class="principi">
+      <span>Niente pubblicità</span>
+      <span>Niente registrazioni</span>
+      <span>I tuoi dati restano sul telefono</span>
+    </div>
+  </main>
+
+  <footer>© 2026 Fernando Giardullo</footer>
+</div>
+</body>
+</html>
