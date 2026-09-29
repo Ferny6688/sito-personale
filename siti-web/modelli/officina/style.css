@@ -1,0 +1,517 @@
+/* =====================================================================
+   STILE DEL SITO
+   Per cambiare l'aspetto di TUTTO il sito basta modificare le variabili
+   qui sotto (la parte ":root"). Il resto del file di solito non si tocca.
+   ===================================================================== */
+
+:root {
+  /* MODIFICA: COLORI --------------------------------------------------- */
+  --colore-principale: #C2410C;        /* bottoni e dettagli (arancio officina) */
+  --colore-principale-scuro: #9A3412;  /* bottoni quando ci passi sopra: una tonalità più scura del principale */
+  --colore-scuro: #1E293B;             /* fondo della parte alta e del piè di pagina */
+  --colore-testo: #1F2937;             /* testo normale */
+  --colore-testo-leggero: #4B5563;     /* testi secondari (note, descrizioni) */
+  --colore-sfondo: #FFFFFF;            /* fondo della pagina */
+  --colore-sfondo-alt: #F1F5F9;        /* fondo delle sezioni alternate */
+  --colore-bordo: #CBD5E1;             /* linee e bordi */
+
+  /* MODIFICA: CARATTERI ------------------------------------------------ */
+  /* Usiamo i caratteri già presenti sul telefono/computer: il sito è più veloce
+     e non si collega a Google Fonts (niente dati inviati a terzi). */
+  --carattere-testo: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --carattere-titoli: var(--carattere-testo);
+
+  /* Misure generali (di solito non serve cambiarle) */
+  --larghezza-massima: 1100px;
+  --raggio: 8px;          /* arrotondamento degli angoli */
+  --altezza-testata: 7rem; /* spazio lasciato sopra quando il menu porta a una sezione */
+}
+
+/* ---------------------------------------------------------------------
+   BASE
+   --------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;                     /* scorrimento morbido dal menu */
+  scroll-padding-top: var(--altezza-testata);  /* la testata fissa non copre i titoli */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--carattere-testo);
+  font-size: 1.0625rem;  /* 17px: si legge bene sul telefono */
+  line-height: 1.6;
+  color: var(--colore-testo);
+  background: var(--colore-sfondo);
+}
+
+h1, h2, h3 {
+  font-family: var(--carattere-titoli);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1 { font-size: 2.25rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.75rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.125rem; }
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--colore-principale-scuro); }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contorno ben visibile quando si naviga con la tastiera */
+:focus-visible {
+  outline: 3px solid var(--colore-principale);
+  outline-offset: 3px;
+}
+
+/* Contenitore centrato con margini laterali */
+.contenitore {
+  width: 100%;
+  max-width: var(--larghezza-massima);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Testo letto solo dai lettori di schermo, invisibile a video */
+.solo-lettori {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Link "Vai al contenuto": compare solo se usi il tasto Tab */
+.salta {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--colore-sfondo);
+  z-index: 100;
+}
+.salta:focus { top: 1rem; }
+
+/* ---------------------------------------------------------------------
+   BOTTONI
+   --------------------------------------------------------------------- */
+.bottone {
+  display: inline-block;
+  min-height: 48px;              /* facile da toccare con il dito */
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--colore-principale);
+  border-radius: var(--raggio);
+  background: var(--colore-principale);
+  color: #FFFFFF;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bottone:hover {
+  background: var(--colore-principale-scuro);
+  border-color: var(--colore-principale-scuro);
+}
+
+.bottone-contorno {
+  background: transparent;
+  border-color: #FFFFFF;
+}
+.bottone-contorno:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: var(--colore-scuro);
+}
+
+.bottone-piccolo {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+}
+
+.bottone-largo { width: 100%; }
+
+/* ---------------------------------------------------------------------
+   TESTATA E MENU
+   --------------------------------------------------------------------- */
+.testata {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--colore-scuro);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.testata-riga {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.logo {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.logo span { color: #FDBA74; } /* arancio chiaro, leggibile sul fondo scuro */
+
+/* Sul telefono il menu è una striscia che si scorre di lato */
+.menu ul {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 auto;
+  list-style: none;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.menu ul::-webkit-scrollbar { display: none; }
+
+.menu ul {
+  justify-content: space-between; /* sul telefono le voci si distribuiscono su tutta la riga */
+  padding: 0 0.5rem;
+}
+
+.menu a {
+  display: block;
+  padding: 0.6rem 0.35rem;
+  color: #E2E8F0;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.menu a:hover { color: #FFFFFF; text-decoration: underline; }
+
+/* ---------------------------------------------------------------------
+   STRISCIA "SITO DIMOSTRATIVO"
+   Si usa solo nel modello da mostrare ai clienti. Quando cancelli la striscia
+   dall'HTML, queste righe possono restare: non fanno niente.
+   --------------------------------------------------------------------- */
+.striscia-demo {
+  padding: 0.45rem 1rem;
+  background: #FEF3C7;
+  color: #1F2937;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.striscia-demo a {
+  color: #1F2937;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------
+   APERTURA
+   --------------------------------------------------------------------- */
+.apertura {
+  /* MODIFICA: foto di sfondo della parte alta.
+     Per cambiarla basta sostituire il file img/apertura.jpg (stesso nome, foto orizzontale,
+     circa 1600 px di larghezza). Il velo scuro sopra la foto tiene il testo leggibile:
+     i due numeri 0.82 e 0.70 sono quanto è scuro il velo (1 = nero pieno, 0 = nessun velo).
+     Non scendere sotto 0.65, altrimenti il testo bianco si legge male sulle foto chiare. */
+  background-color: var(--colore-scuro); /* colore di riserva mentre la foto si carica */
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.70)),
+    url("img/apertura.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
+  padding: 2.5rem 0 3rem;
+  border-bottom: 6px solid var(--colore-principale);
+}
+
+.apertura-luogo {
+  margin-bottom: 0.5rem;
+  color: #FDBA74;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.apertura-frase {
+  max-width: 38rem;
+  font-size: 1.15rem;
+  color: #E2E8F0;
+}
+
+.apertura-bottoni {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.apertura-info {
+  margin: 0;
+  color: #CBD5E1;
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------------------
+   SEZIONI
+   --------------------------------------------------------------------- */
+.sezione { padding: 3rem 0; }
+.sezione-alt { background: var(--colore-sfondo-alt); }
+
+.sezione-intro {
+  max-width: 40rem;
+  color: var(--colore-testo-leggero);
+}
+
+/* Servizi */
+.griglia-servizi {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scheda {
+  padding: 1.25rem;
+  background: var(--colore-sfondo);
+  border: 1px solid var(--colore-bordo);
+  border-top: 4px solid var(--colore-principale);
+  border-radius: var(--raggio);
+}
+.scheda h3 { margin-bottom: 0.4rem; }
+.scheda p { margin: 0; color: var(--colore-testo-leggero); }
+
+/* Perché sceglierci: numeri grandi accanto a ogni punto */
+.griglia-punti {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: punto;
+}
+.griglia-punti li {
+  position: relative;
+  padding-left: 3.25rem;
+  counter-increment: punto;
+}
+.griglia-punti li::before {
+  content: counter(punto);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--colore-principale);
+  color: #FFFFFF;
+  font-weight: 800;
+}
+.griglia-punti p { margin: 0; color: var(--colore-testo-leggero); }
+
+/* Galleria foto */
+.galleria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.galleria img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--raggio);
+  background: var(--colore-sfondo-alt);
+}
+
+/* Orari */
+.tabella-orari {
+  width: 100%;
+  max-width: 28rem;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.tabella-orari th,
+.tabella-orari td {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--colore-bordo);
+  text-align: left;
+  vertical-align: top;
+}
+.tabella-orari th { font-weight: 600; padding-right: 1rem; }
+.tabella-orari td { text-align: right; }
+
+.indirizzo {
+  font-style: normal;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.nota {
+  font-size: 0.95rem;
+  color: var(--colore-testo-leggero);
+}
+
+/* Contatti */
+.lista-contatti {
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+.lista-contatti li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--colore-bordo);
+  font-size: 1.15rem;
+}
+.lista-contatti a { font-weight: 700; word-break: break-word; }
+.etichetta {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--colore-testo-leggero);
+}
+
+/* Modulo */
+.riquadro-modulo {
+  padding: 1.25rem;
+  background: var(--colore-sfondo-alt);
+  border-radius: var(--raggio);
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.35rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #94A3B8;
+  border-radius: var(--raggio);
+  background: #FFFFFF;
+  color: var(--colore-testo);
+  font: inherit;  /* 17px: evita lo zoom automatico dell'iPhone */
+}
+textarea { resize: vertical; }
+
+.riquadro-modulo .bottone { margin-top: 1.25rem; }
+.riquadro-modulo .nota { margin: 0.75rem 0 0; }
+
+/* Campo anti-spam: nascosto a tutti */
+.trappola { display: none; }
+
+/* ---------------------------------------------------------------------
+   PIÈ DI PAGINA
+   --------------------------------------------------------------------- */
+.piede {
+  padding: 2rem 0;
+  background: var(--colore-scuro);
+  color: #CBD5E1;
+  font-size: 0.95rem;
+}
+.piede strong { color: #FFFFFF; }
+.piede a { color: #FFFFFF; }
+.piccolo { font-size: 0.85rem; margin: 0; }
+
+/* ---------------------------------------------------------------------
+   PAGINE SEMPLICI (privacy, grazie)
+   --------------------------------------------------------------------- */
+.pagina-testo {
+  max-width: 44rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+.pagina-testo h2 { font-size: 1.3rem; margin-top: 2rem; }
+.pagina-testo ul { padding-left: 1.25rem; }
+
+/* =====================================================================
+   SCHERMI PIÙ GRANDI
+   Tutto quello sopra è pensato per il telefono. Qui sotto aggiungiamo
+   solo le differenze per tablet e computer.
+   ===================================================================== */
+
+/* Tablet (da 700px in su) */
+@media (min-width: 700px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; }
+
+  .apertura { padding: 4rem 0 4.5rem; }
+  .apertura-bottoni { flex-direction: row; }
+
+  .griglia-servizi { grid-template-columns: repeat(2, 1fr); }
+  .griglia-punti   { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .galleria        { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+
+  .riquadro-modulo { padding: 2rem; }
+}
+
+/* Computer (da 1000px in su) */
+@media (min-width: 1000px) {
+  :root { --altezza-testata: 4.5rem; }
+
+  .sezione { padding: 4.5rem 0; }
+
+  /* Testata su una sola riga: nome a sinistra, menu al centro, Chiama a destra */
+  .testata {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.5rem max(1rem, calc((100% - var(--larghezza-massima)) / 2 + 1rem));
+  }
+  .testata-riga { display: contents; }
+  .logo { order: 1; }
+  .menu { order: 2; margin-left: auto; }
+  .testata-riga .bottone { order: 3; }
+  .menu ul { padding: 0; }
+  .menu a { padding: 0.6rem 0.75rem; }
+
+  .griglia-servizi { grid-template-columns: repeat(4, 1fr); }
+  .griglia-punti   { grid-template-columns: repeat(4, 1fr); }
+
+  .due-colonne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+/* =====================================================================
+   SOLO DEMO: messaggio del modulo dimostrativo
+   ===================================================================== */
+.messaggio-demo:empty { display: none; }
+.messaggio-demo {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  background: #FEF3C7;
+  border-left: 4px solid var(--colore-principale);
+  border-radius: var(--raggio);
+  color: #1F2937;
+  font-weight: 600;
+}

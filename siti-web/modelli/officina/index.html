@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- DEMO: questa pagina non deve comparire su Google (attività inventata) -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- MODIFICA: titolo della pagina (quello che appare su Google e nella scheda del browser). Formula: Nome officina – cosa fa a Città -->
+  <title>Autofficina Belloni – Meccanico a Novara | Tagliandi, freni, gomme, revisioni</title>
+
+  <!-- MODIFICA: descrizione per Google (massimo circa 155 caratteri) -->
+  <meta name="description" content="Autofficina Belloni a Novara: tagliandi, freni, gomme, diagnosi elettronica, climatizzatore e revisioni. Preventivi chiari e auto pronta nei tempi promessi.">
+
+  <meta name="theme-color" content="#1E293B">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Anteprima quando il link viene condiviso su WhatsApp, Facebook, ecc. -->
+  <!-- MODIFICA: titolo e descrizione dell'anteprima (puoi copiare quelli sopra) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Autofficina Belloni – Meccanico a Novara">
+  <meta property="og:description" content="Tagliandi, freni, gomme, diagnosi e revisioni. Chiama o richiedi un preventivo.">
+  <!-- MODIFICA: indirizzo completo del sito + /img/anteprima.jpg (serve l'indirizzo intero, con https://) -->
+  <meta property="og:image" content="https://fernandogiardullo.it/siti-web/modelli/officina/img/anteprima.jpg">
+
+</head>
+
+<body>
+
+  <!-- INIZIO STRISCIA DEMO: per la consegna al cliente cancella da qui… -->
+  <div class="striscia-demo">
+    Sito dimostrativo – attività inventata. Vuoi un sito così per la tua officina? Scopri come su <a href="../../index.html">fernandogiardullo.it</a>
+  </div>
+  <!-- …a qui FINE STRISCIA DEMO -->
+
+  <!-- Link nascosto per chi naviga con la tastiera o con il lettore di schermo: salta direttamente al contenuto -->
+  <a class="salta" href="#contenuto">Vai al contenuto</a>
+
+  <!-- ============================================================
+       TESTATA: nome in alto + menu. Resta fissa in alto mentre scorri.
+       ============================================================ -->
+  <header class="testata">
+    <div class="contenitore testata-riga">
+      <!-- MODIFICA: nome officina (versione corta) -->
+      <a class="logo" href="#inizio">Autofficina <span>Belloni</span></a>
+
+      <!-- MODIFICA: numero di telefono. In href scrivi il numero SENZA spazi, con +39 davanti -->
+      <a class="bottone bottone-piccolo" href="tel:+390321000000">Chiama</a>
+    </div>
+
+    <!-- Menu: ogni link porta alla sezione con lo stesso id (es. href="#servizi" → id="servizi") -->
+    <nav class="menu" aria-label="Menu principale">
+      <ul class="contenitore">
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#foto">Foto</a></li>
+        <li><a href="#orari">Orari</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+
+    <!-- ============================================================
+         1. APERTURA (la prima cosa che si vede)
+         MODIFICA: la foto di sfondo è il file img/apertura.jpg.
+         Per cambiarla sostituisci il file tenendo lo stesso nome (spiegazione completa in style.css, cerca "apertura.jpg").
+         ============================================================ -->
+    <section class="apertura" id="inizio">
+      <div class="contenitore">
+        <!-- MODIFICA: città / zona -->
+        <p class="apertura-luogo">Officina meccanica a Novara</p>
+
+        <!-- MODIFICA: nome officina -->
+        <h1>Autofficina Belloni</h1>
+
+        <!-- MODIFICA: frase breve (una riga, massimo due) -->
+        <p class="apertura-frase">Manutenzione e riparazione di auto di tutte le marche. Preventivo chiaro prima di iniziare, auto pronta quando te lo diciamo.</p>
+
+        <div class="apertura-bottoni">
+          <!-- MODIFICA: numero di telefono (due volte: nel link e nel testo) -->
+          <a class="bottone" href="tel:+390321000000">Chiama 0321 000000</a>
+          <a class="bottone bottone-contorno" href="#preventivo">Richiedi preventivo</a>
+        </div>
+
+        <!-- MODIFICA: riassunto degli orari -->
+        <p class="apertura-info">Lun–Ven 8:00–12:30 e 14:00–18:30 · Sab 8:00–12:00</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. SERVIZI
+         Per aggiungere un servizio: copia un blocco <li class="scheda">…</li> e cambia i testi.
+         Per toglierlo: cancella il blocco intero, da <li> a </li>.
+         ============================================================ -->
+    <section class="sezione" id="servizi">
+      <div class="contenitore">
+        <h2>I nostri servizi</h2>
+        <!-- MODIFICA: frase introduttiva dei servizi -->
+        <p class="sezione-intro">Lavoriamo su auto di tutte le marche, benzina, diesel, GPL, metano e ibride.</p>
+
+        <ul class="griglia-servizi">
+          <!-- MODIFICA: servizi (titolo + descrizione breve) -->
+          <li class="scheda">
+            <h3>Tagliando</h3>
+            <p>Olio, filtri e controlli secondo il piano del costruttore. La garanzia della casa resta valida.</p>
+          </li>
+          <li class="scheda">
+            <h3>Freni</h3>
+            <p>Pastiglie, dischi e liquido freni. Controllo gratuito dello spessore mentre aspetti.</p>
+          </li>
+          <li class="scheda">
+            <h3>Gomme</h3>
+            <p>Cambio stagionale, equilibratura, convergenza e deposito delle gomme estive o invernali.</p>
+          </li>
+          <li class="scheda">
+            <h3>Diagnosi elettronica</h3>
+            <p>Spia accesa sul cruscotto? Leggiamo gli errori della centralina e ti diciamo cosa serve davvero.</p>
+          </li>
+          <li class="scheda">
+            <h3>Climatizzatore</h3>
+            <p>Ricarica del gas, controllo perdite e sanificazione dell'impianto.</p>
+          </li>
+          <li class="scheda">
+            <h3>Revisione</h3>
+            <p>Pre-revisione in officina e accompagnamento al centro revisioni. Ti avvisiamo noi alla scadenza.</p>
+          </li>
+          <li class="scheda">
+            <h3>Frizione e distribuzione</h3>
+            <p>Sostituzione di cinghia o catena, frizione e volano con ricambi di qualità equivalente o originale.</p>
+          </li>
+          <li class="scheda">
+            <h3>Batteria ed elettrauto</h3>
+            <p>Test e sostituzione batteria, alternatore, motorino d'avviamento e luci.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. PERCHÉ SCEGLIERCI
+         ============================================================ -->
+    <section class="sezione sezione-alt" id="perche">
+      <div class="contenitore">
+        <h2>Perché sceglierci</h2>
+
+        <ol class="griglia-punti">
+          <!-- MODIFICA: i punti di forza (3 o 4). Usa numeri e fatti veri del cliente -->
+          <li>
+            <h3>Preventivo prima di iniziare</h3>
+            <p>Ti diciamo il prezzo prima di mettere mano all'auto. Se durante il lavoro troviamo altro, ti chiamiamo prima di procedere.</p>
+          </li>
+          <li>
+            <h3>Oltre 25 anni di esperienza</h3>
+            <p>Officina di famiglia dal 1998. Conosciamo le auto di ieri e quelle di oggi.</p>
+          </li>
+          <li>
+            <h3>Tempi rispettati</h3>
+            <p>Quando ti diamo un orario di consegna, l'auto è pronta. Per i tagliandi spesso in giornata.</p>
+          </li>
+          <li>
+            <h3>Garanzia sui lavori</h3>
+            <p>Ricambi e manodopera sono garantiti. Ti lasciamo sempre la fattura con il dettaglio di ogni voce.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. FOTO DELL'OFFICINA
+         Le foto stanno nella cartella img/. Sostituisci i file mantenendo lo stesso nome.
+         MODIFICA: il testo alt di ogni foto (descrive cosa si vede, serve a chi non vede e a Google)
+         ============================================================ -->
+    <section class="sezione" id="foto">
+      <div class="contenitore">
+        <h2>La nostra officina</h2>
+
+        <ul class="galleria">
+          <li><img src="img/officina-1.jpg" alt="L'interno dell'officina con la parete degli attrezzi" width="800" height="600" loading="lazy"></li>
+          <li><img src="img/officina-2.jpg" alt="Auto sul ponte sollevatore" width="800" height="600" loading="lazy"></li>
+          <li><img src="img/officina-3.jpg" alt="Disco freno e mozzo durante la sostituzione dei freni" width="800" height="600" loading="lazy"></li>
+          <li><img src="img/officina-4.jpg" alt="Diagnosi elettronica con il tester collegato all'auto" width="800" height="600" loading="lazy"></li>
+          <li><img src="img/officina-5.jpg" alt="Controllo della convergenza delle ruote" width="800" height="600" loading="lazy"></li>
+          <li><img src="img/officina-6.jpg" alt="Meccanico al lavoro sulla ruota di un'auto" width="800" height="600" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. ORARI E DOVE SIAMO
+         ============================================================ -->
+    <section class="sezione sezione-alt" id="orari">
+      <div class="contenitore due-colonne">
+
+        <div>
+          <h2>Orari</h2>
+          <!-- MODIFICA: orari. Una riga <tr> per ogni giorno -->
+          <table class="tabella-orari">
+            <caption class="solo-lettori">Orari di apertura</caption>
+            <tbody>
+              <tr><th scope="row">Lunedì</th><td>8:00–12:30 · 14:00–18:30</td></tr>
+              <tr><th scope="row">Martedì</th><td>8:00–12:30 · 14:00–18:30</td></tr>
+              <tr><th scope="row">Mercoledì</th><td>8:00–12:30 · 14:00–18:30</td></tr>
+              <tr><th scope="row">Giovedì</th><td>8:00–12:30 · 14:00–18:30</td></tr>
+              <tr><th scope="row">Venerdì</th><td>8:00–12:30 · 14:00–18:30</td></tr>
+              <tr><th scope="row">Sabato</th><td>8:00–12:00</td></tr>
+              <tr><th scope="row">Domenica</th><td>Chiuso</td></tr>
+            </tbody>
+          </table>
+          <!-- MODIFICA: nota sugli orari (ferie, festivi). Se non serve, cancella questa riga -->
+          <p class="nota">Chiusi per ferie le due settimane centrali di agosto.</p>
+        </div>
+
+        <div>
+          <h2>Dove siamo</h2>
+          <!-- MODIFICA: indirizzo -->
+          <address class="indirizzo">
+            Via dei Mestieri 12<br>
+            28100 Novara (NO)
+          </address>
+          <!-- MODIFICA: indicazioni utili (parcheggio, punti di riferimento). Se non serve, cancella questa riga -->
+          <p>Zona artigianale, di fronte al distributore. Parcheggio clienti davanti all'officina.</p>
+
+          <!-- MODIFICA: link a Google Maps. Dopo "query=" scrivi l'indirizzo con il + al posto degli spazi -->
+          <a class="bottone" href="https://www.google.com/maps/search/?api=1&amp;query=Via+dei+Mestieri+12+28100+Novara" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. CONTATTI + MODULO PREVENTIVO
+         ============================================================ -->
+    <section class="sezione" id="contatti">
+      <div class="contenitore due-colonne">
+
+        <div>
+          <h2>Contatti</h2>
+          <p>Il modo più veloce è una telefonata. Per un preventivo puoi anche scriverci con il modulo: ti richiamiamo entro un giorno lavorativo.</p>
+
+          <ul class="lista-contatti">
+            <!-- MODIFICA: telefono (nel link senza spazi con +39, nel testo come preferisci) -->
+            <li><span class="etichetta">Telefono</span> <a href="tel:+390321000000">0321 000000</a></li>
+            <!-- MODIFICA: email (due volte: dopo mailto: e nel testo) -->
+            <li><span class="etichetta">Email</span> <a href="mailto:info@autofficinabelloni.it">info@autofficinabelloni.it</a></li>
+          </ul>
+        </div>
+
+        <div class="riquadro-modulo" id="preventivo">
+          <h2>Richiedi preventivo</h2>
+
+          <!-- DEMO: questo modulo non invia nulla. Premendo "Invia la richiesta"
+               compare solo un messaggio (vedi lo script in fondo alla pagina). -->
+          <form id="modulo-demo" method="post">
+
+            <label for="nome">Nome e cognome</label>
+            <input type="text" id="nome" name="Nome" autocomplete="name" required>
+
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="Telefono" autocomplete="tel" inputmode="tel" required>
+
+            <label for="auto">Targa o modello dell'auto</label>
+            <input type="text" id="auto" name="Auto" placeholder="Es. AB123CD oppure Utilitaria 1.2 del 2018" required>
+
+            <label for="messaggio">Di cosa hai bisogno?</label>
+            <textarea id="messaggio" name="Messaggio" rows="5" required></textarea>
+
+            <button type="submit" class="bottone bottone-largo">Invia la richiesta</button>
+
+            <!-- DEMO: qui compare il messaggio dopo il clic su "Invia la richiesta" -->
+            <p class="messaggio-demo" id="messaggio-demo" role="status"></p>
+
+            <p class="nota">Usiamo i tuoi dati solo per risponderti. Leggi l'<a href="privacy.html">informativa privacy</a>.</p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       7. PIÈ DI PAGINA
+       ============================================================ -->
+  <footer class="piede">
+    <div class="contenitore">
+      <!-- MODIFICA: ragione sociale, indirizzo della sede e Partita IVA (obbligatoria per legge sul sito di un'attività) -->
+      <p><strong>Autofficina Belloni di Marco Belloni</strong><br>
+         Via dei Mestieri 12 – 28100 Novara (NO)<br>
+         P.IVA 01234567890</p>
+      <p><a href="privacy.html">Privacy</a> · Questo sito non usa cookie.</p>
+      <!-- MODIFICA: anno. La riga "Sito realizzato da" puoi toglierla se il cliente non la vuole -->
+      <p class="piccolo">© 2026 · Sito realizzato da Fernando Giardullo</p>
+    </div>
+  </footer>
+
+  <!-- DEMO: blocca l'invio del modulo e mostra un messaggio.
+       Il browser controlla prima che i campi obbligatori siano compilati. -->
+  <script>
+    document.getElementById('modulo-demo').addEventListener('submit', function (evento) {
+      evento.preventDefault();
+      document.getElementById('messaggio-demo').textContent =
+        'Questo è un sito dimostrativo: il modulo non invia messaggi. ' +
+        'Sul tuo sito le richieste arriveranno direttamente alla tua email.';
+    });
+  </script>
+
+</body>
+</html>
