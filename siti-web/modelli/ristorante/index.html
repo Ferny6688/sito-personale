@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- DEMO: questa pagina non deve comparire su Google (attività inventata) -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- MODIFICA: titolo della pagina (quello che appare su Google e nella scheda del browser). Formula: Nome locale – cosa fa a Città -->
+  <title>Trattoria Rosa &amp; Basilico – Cucina di casa e pizza napoletana a Lucca</title>
+
+  <!-- MODIFICA: descrizione per Google (massimo circa 155 caratteri) -->
+  <meta name="description" content="Trattoria Rosa &amp; Basilico a Lucca: cucina di casa toscana e pizza napoletana cotta nel forno a legna. Guarda il menu e prenota un tavolo.">
+
+  <!-- MODIFICA: colore della barra del browser sul telefono (di solito il colore di fondo della pagina) -->
+  <meta name="theme-color" content="#F7F1E6">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <!-- Carica prima i due caratteri più importanti, così la pagina non "salta" -->
+  <link rel="preload" href="font/cormorant-garamond-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="font/nunito-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Anteprima quando il link viene condiviso su WhatsApp, Facebook, ecc. -->
+  <!-- MODIFICA: titolo e descrizione dell'anteprima (puoi copiare quelli sopra) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Trattoria Rosa &amp; Basilico – Lucca">
+  <meta property="og:description" content="Cucina di casa e pizza napoletana nel forno a legna. Guarda il menu e prenota un tavolo.">
+  <!-- MODIFICA: indirizzo completo del sito + /img/anteprima.jpg (serve l'indirizzo intero, con https://) -->
+  <meta property="og:image" content="https://fernandogiardullo.it/siti-web/modelli/ristorante/img/anteprima.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+</head>
+
+<body>
+
+  <!-- DISEGNI DECORATIVI (ramo d'ulivo e linea ondulata).
+       Sono disegnati qui una volta sola e poi richiamati nella pagina con <use href="#ramo-ulivo">.
+       Il colore si cambia in style.css (classi .ornamento e .onda). Di solito non si tocca. -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+    <symbol id="ramo-ulivo" viewBox="0 0 120 30">
+      <path d="M6 16 C 40 13, 80 13, 114 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <g fill="currentColor">
+        <ellipse cx="22" cy="10" rx="8" ry="2.6" transform="rotate(-28 22 10)"/>
+        <ellipse cx="38" cy="21" rx="8" ry="2.6" transform="rotate(28 38 21)"/>
+        <ellipse cx="54" cy="9" rx="8" ry="2.6" transform="rotate(-28 54 9)"/>
+        <ellipse cx="70" cy="20" rx="8" ry="2.6" transform="rotate(28 70 20)"/>
+        <ellipse cx="86" cy="9" rx="8" ry="2.6" transform="rotate(-28 86 9)"/>
+        <ellipse cx="102" cy="21" rx="8" ry="2.6" transform="rotate(28 102 21)"/>
+        <circle cx="47" cy="24" r="3"/>
+        <circle cx="95" cy="6" r="3"/>
+      </g>
+    </symbol>
+    <symbol id="onda" viewBox="0 0 200 12">
+      <path d="M0 6 Q 12.5 0 25 6 T 50 6 T 75 6 T 100 6 T 125 6 T 150 6 T 175 6 T 200 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <!-- INIZIO STRISCIA DEMO: per la consegna al cliente cancella da qui… -->
+  <div class="striscia-demo">
+    Sito dimostrativo – attività inventata. Vuoi un sito così per il tuo locale? Scopri come su <a href="../../index.html">fernandogiardullo.it</a>
+  </div>
+  <!-- …a qui FINE STRISCIA DEMO -->
+
+  <!-- Link nascosto per chi naviga con la tastiera o con il lettore di schermo: salta direttamente al contenuto -->
+  <a class="salta" href="#contenuto">Vai al contenuto</a>
+
+  <!-- ============================================================
+       TESTATA: nome, menu e bottone "Prenota". Resta fissa in alto mentre scorri.
+       ============================================================ -->
+  <header class="testata">
+    <div class="contenitore testata-interna">
+      <!-- MODIFICA: nome del locale. <small> è la parola piccola sopra (Trattoria, Pizzeria, Osteria…) -->
+      <a class="logo" href="#inizio"><small>Trattoria</small> Rosa &amp; Basilico</a>
+
+      <!-- Menu: ogni link porta alla sezione con lo stesso id (es. href="#menu" → id="menu").
+           Tieni le voci corte: sul telefono devono stare in una o due righe. -->
+      <nav class="menu" aria-label="Menu principale">
+        <ul>
+          <li><a href="#cucina">La cucina</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#orari">Orari</a></li>
+          <li><a href="#prenota">Prenota</a></li>
+        </ul>
+      </nav>
+
+      <a class="bottone bottone-piccolo" href="#prenota">Prenota un tavolo</a>
+    </div>
+  </header>
+
+  <main id="contenuto">
+
+    <!-- ============================================================
+         1. APERTURA (la prima cosa che si vede)
+         MODIFICA: la foto è il file img/apertura.jpg (16:9, 1600 px di larghezza).
+         Per cambiarla sostituisci il file tenendo lo stesso nome.
+         ============================================================ -->
+    <section class="apertura" id="inizio">
+      <!-- MODIFICA: testo alternativo della foto (descrive cosa si vede) -->
+      <img class="apertura-foto" src="img/apertura.jpg" width="1600" height="900" alt="Il forno a legna acceso con le fiamme vive" fetchpriority="high">
+
+      <div class="contenitore">
+        <!-- MODIFICA: tipo di cucina e città -->
+        <p class="apertura-luogo">Cucina di casa e pizza napoletana · Lucca</p>
+
+        <!-- MODIFICA: nome del locale (è l'unico h1 della pagina) -->
+        <h1>Trattoria Rosa &amp; Basilico</h1>
+
+        <!-- MODIFICA: frase breve (una riga, massimo due) -->
+        <p class="apertura-frase">Ricette di famiglia, impasto a lunga lievitazione e il forno a legna acceso ogni sera.</p>
+
+        <div class="apertura-bottoni">
+          <!-- MODIFICA: numero di telefono. In href scrivi il numero SENZA spazi, con +39 davanti -->
+          <a class="bottone" href="tel:+390583000000">Prenota un tavolo</a>
+          <a class="bottone bottone-chiaro" href="#menu">Guarda il menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. LA NOSTRA CUCINA: breve storia accanto alla foto della pizza
+         ============================================================ -->
+    <section class="sezione" id="cucina">
+      <div class="contenitore racconto">
+
+        <div class="racconto-testo">
+          <svg class="ornamento" aria-hidden="true" focusable="false"><use href="#ramo-ulivo"/></svg>
+          <!-- MODIFICA: occhiello (una frase corta sopra il titolo) -->
+          <p class="occhiello">Dal 1987, nel centro di Lucca</p>
+          <h2>La nostra cucina</h2>
+          <!-- MODIFICA: la storia del locale (due o tre frasi, con fatti veri del cliente) -->
+          <p>Nonna Rosa ha aperto la trattoria con quattro tavoli e un quaderno di ricette. Oggi in cucina ci sono i nipoti, ma i tordelli si chiudono ancora a mano, uno per uno.</p>
+          <p>La pizza è napoletana: impasto lievitato 48 ore, pomodoro San Marzano e fior di latte, un minuto e mezzo nel forno a legna. Verdure e formaggi arrivano dai produttori della Piana e della Garfagnana.</p>
+          <!-- MODIFICA: firma (nome del titolare o della famiglia). Se non serve, cancella questa riga -->
+          <p class="firma">La famiglia Pieri</p>
+        </div>
+
+        <div class="racconto-foto">
+          <!-- MODIFICA: testo alternativo della foto -->
+          <img src="img/ristorante-1.jpg" width="1200" height="900" loading="lazy" alt="Una pizza margherita nel forno a legna, con le fiamme sullo sfondo">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. MENU (la sezione più importante)
+
+         COME È FATTO: ogni categoria è un blocco <section class="categoria">.
+         Dentro, ogni piatto è un blocco <li class="piatto"> … </li>, tutti UGUALI.
+
+         PER AGGIUNGERE UN PIATTO: copia un blocco intero, dalla riga del commento
+           "MODIFICA: piatto" fino alla riga con la chiusura del blocco (li chiuso),
+           incollalo sotto e cambia nome, prezzo e descrizione.
+         PER TOGLIERE UN PIATTO: cancella il blocco intero, dal commento "MODIFICA: piatto"
+           fino alla chiusura del blocco (li chiuso).
+         PREZZO: scrivilo con la virgola e il simbolo dell'euro, es. 8,50 €
+         DESCRIZIONE: se il piatto non ne ha bisogno, cancella la riga che inizia con p class="piatto-descrizione".
+
+         PER AGGIUNGERE UNA CATEGORIA: copia un blocco section class="categoria" intero,
+           cambia l'id (es. id="menu-secondi") e aggiungi la scheda corrispondente
+           nell'elenco "menu-schede" qui sotto (href="#menu-secondi").
+         Spiegazione completa in PERSONALIZZA.txt, "PASSO 3 – IL MENU".
+         ============================================================ -->
+    <section class="sezione sezione-alt" id="menu">
+      <div class="contenitore">
+
+        <div class="sezione-titolo">
+          <!-- MODIFICA: occhiello del menu -->
+          <p class="occhiello">Cucina di stagione</p>
+          <h2>Il menu</h2>
+          <svg class="onda" aria-hidden="true" focusable="false"><use href="#onda"/></svg>
+        </div>
+
+        <div class="menu-foglio">
+
+          <!-- Schede delle categorie: portano direttamente alla categoria. Una per ogni categoria del menu -->
+          <nav aria-label="Categorie del menu">
+            <ul class="menu-schede">
+              <li><a href="#menu-antipasti">Antipasti</a></li>
+              <li><a href="#menu-pizze">Pizze</a></li>
+              <li><a href="#menu-primi">Primi</a></li>
+              <li><a href="#menu-dolci">Dolci</a></li>
+              <li><a href="#menu-bevande">Bevande</a></li>
+            </ul>
+          </nav>
+
+          <div class="menu-categorie">
+
+            <!-- ======== CATEGORIA: ANTIPASTI ======== -->
+            <section class="categoria" id="menu-antipasti">
+              <h3>Antipasti</h3>
+              <ul class="piatti">
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Bruschette al pomodoro</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">6,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pane toscano abbrustolito, pomodoro, basilico e olio extravergine delle colline lucchesi.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Tagliere toscano</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">14,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Salumi del territorio, pecorino, crostini con fegatini e sottoli della casa. Per due persone.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Burrata e pomodorini</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">9,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Burrata pugliese, pomodorini confit, basilico fresco.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Frittatine di pasta</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">5,50 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Come in una pizzeria di Napoli: bucatini, besciamella, piselli e prosciutto, fritti al momento.</p>
+                </li>
+
+              </ul>
+            </section>
+
+            <!-- ======== CATEGORIA: PIZZE ======== -->
+            <section class="categoria" id="menu-pizze">
+              <h3>Pizze</h3>
+              <!-- MODIFICA: nota della categoria. Se non serve, cancella questa riga -->
+              <p class="categoria-nota">Impasto lievitato 48 ore, cotto nel forno a legna</p>
+              <ul class="piatti">
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Marinara</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">6,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pomodoro San Marzano, aglio, origano, olio extravergine.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Margherita</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">7,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pomodoro San Marzano, fior di latte, basilico, olio extravergine.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Diavola</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">8,50 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pomodoro, fior di latte, salame piccante, olio al peperoncino.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Capricciosa</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">9,50 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pomodoro, fior di latte, prosciutto cotto, funghi, carciofini, olive.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Salsiccia e friarielli</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">10,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pizza bianca con fior di latte, salsiccia e friarielli ripassati in padella.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Rosa &amp; Basilico</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">11,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">La pizza della casa: pomodorini gialli, burrata all'uscita dal forno, pesto di basilico.</p>
+                </li>
+
+              </ul>
+            </section>
+
+            <!-- ======== CATEGORIA: PRIMI ======== -->
+            <section class="categoria" id="menu-primi">
+              <h3>Primi</h3>
+              <ul class="piatti">
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Tordelli lucchesi al ragù</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">12,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Pasta fresca ripiena di carne, chiusa a mano, con ragù toscano cotto quattro ore.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Spaghetti alla carbonara</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">11,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Guanciale croccante, tuorlo d'uovo, pecorino romano e pepe nero.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Zuppa di farro</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">10,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Farro della Garfagnana, fagioli e verdure dell'orto, con un filo d'olio a crudo.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Gnocchi al pomodoro</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">10,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Gnocchi di patate fatti in casa, salsa di pomodoro fresco e basilico.</p>
+                </li>
+
+              </ul>
+            </section>
+
+            <!-- ======== CATEGORIA: DOLCI ======== -->
+            <section class="categoria" id="menu-dolci">
+              <h3>Dolci</h3>
+              <ul class="piatti">
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Tortino al cioccolato</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">6,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Cioccolato fondente con cuore morbido e nocciole tostate.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Tiramisù della casa</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">5,50 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Savoiardi, caffè della moka e crema al mascarpone.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Buccellato e vin santo</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">5,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Il dolce tipico di Lucca, con uvetta e anice, e un bicchierino di vin santo.</p>
+                </li>
+
+              </ul>
+            </section>
+
+            <!-- ======== CATEGORIA: BEVANDE ======== -->
+            <section class="categoria" id="menu-bevande">
+              <h3>Bevande</h3>
+              <ul class="piatti">
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Acqua naturale o frizzante</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">2,50 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Bottiglia da 75 cl.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Vino della casa</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">4,50 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Rosso o bianco delle colline lucchesi, un quarto di litro.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Birra alla spina</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">5,00 €</span>
+                  </div>
+                  <p class="piatto-descrizione">Bionda artigianale toscana, media da 0,4 litri.</p>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Bibite</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">3,00 €</span>
+                  </div>
+                </li>
+
+                <!-- MODIFICA: piatto -->
+                <li class="piatto">
+                  <div class="piatto-riga">
+                    <span class="piatto-nome">Caffè</span>
+                    <span class="piatto-puntini" aria-hidden="true"></span>
+                    <span class="piatto-prezzo">1,50 €</span>
+                  </div>
+                </li>
+
+              </ul>
+            </section>
+
+          </div>
+
+          <!-- AVVISO ALLERGIE: lascialo sempre (per legge le informazioni sugli allergeni devono essere disponibili).
+               MODIFICA: il prezzo del coperto. Se il locale non lo fa pagare, cancella la riga del coperto -->
+          <div class="avviso-allergie">
+            <p><strong>Segnala eventuali allergie al personale.</strong> L'elenco degli allergeni presenti in ogni piatto è disponibile su richiesta.</p>
+            <p>Coperto e pane: 2,00 € a persona.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. GALLERIA
+         Le foto stanno nella cartella img/. Sostituisci i file mantenendo lo stesso nome.
+         - Le foto ORIZZONTALI sono 4:3 (1200 px di larghezza).
+         - Le foto VERTICALI (classe "foto-verticale") sono 3:4 (900 px) e occupano due righe.
+         L'ordine qui sotto (1, 2, 3, 5, 4, 6) è voluto: fa incastrare bene la griglia
+         sia sul telefono sia sul computer. Se cambi le foto, lascia le verticali al 2° e al 4° posto.
+         MODIFICA: il testo alt di ogni foto (descrive cosa si vede, serve a chi non vede e a Google)
+         ============================================================ -->
+    <section class="sezione" id="galleria">
+      <div class="contenitore">
+
+        <div class="sezione-titolo">
+          <!-- MODIFICA: occhiello della galleria -->
+          <p class="occhiello">Dal forno alla tavola</p>
+          <h2>Galleria</h2>
+          <svg class="onda" aria-hidden="true" focusable="false"><use href="#onda"/></svg>
+        </div>
+
+        <ul class="galleria">
+          <li><img src="img/ristorante-1.jpg" width="1200" height="900" loading="lazy" alt="Pizza margherita che cuoce nel forno a legna"></li>
+          <li class="foto-verticale"><img src="img/ristorante-2.jpg" width="900" height="1200" loading="lazy" alt="Una mano spolvera la farina sull'impasto della pizza"></li>
+          <li><img src="img/ristorante-3.jpg" width="1200" height="900" loading="lazy" alt="Un piatto di spaghetti alla carbonara con pecorino e pepe"></li>
+          <li class="foto-verticale"><img src="img/ristorante-5.jpg" width="900" height="1200" loading="lazy" alt="Tortino al cioccolato servito con un calice di vino bianco"></li>
+          <li><img src="img/ristorante-4.jpg" width="1200" height="900" loading="lazy" alt="La sala con i tavoli di legno apparecchiati e le lucine sul soffitto"></li>
+          <li><img src="img/ristorante-6.jpg" width="1200" height="900" loading="lazy" alt="L'insegna luminosa della trattoria e la tenda con le lucine, di sera"></li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. ORARI E DOVE SIAMO
+         ============================================================ -->
+    <section class="sezione sezione-alt" id="orari">
+      <div class="contenitore due-colonne">
+
+        <div>
+          <p class="occhiello">Quando trovarci</p>
+          <h2>Orari</h2>
+          <!-- MODIFICA: orari. Una riga <tr> per ogni giorno.
+               Il giorno di chiusura ha class="chiuso" (così si vede in rosso) -->
+          <table class="tabella-orari">
+            <caption class="solo-lettori">Orari di apertura</caption>
+            <tbody>
+              <tr class="chiuso"><th scope="row">Lunedì</th><td>Chiuso</td></tr>
+              <tr><th scope="row">Martedì</th><td>12:00–14:30 · 19:00–23:00</td></tr>
+              <tr><th scope="row">Mercoledì</th><td>12:00–14:30 · 19:00–23:00</td></tr>
+              <tr><th scope="row">Giovedì</th><td>12:00–14:30 · 19:00–23:00</td></tr>
+              <tr><th scope="row">Venerdì</th><td>12:00–14:30 · 19:00–23:00</td></tr>
+              <tr><th scope="row">Sabato</th><td>12:00–14:30 · 19:00–23:00</td></tr>
+              <tr><th scope="row">Domenica</th><td>12:00–14:30 · 19:00–23:00</td></tr>
+            </tbody>
+          </table>
+          <!-- MODIFICA: nota sugli orari (cucina, ferie, festivi). Se non serve, cancella questa riga -->
+          <p class="nota">La cucina chiude mezz'ora prima. Chiusi per ferie le prime due settimane di novembre.</p>
+        </div>
+
+        <div>
+          <p class="occhiello">Come arrivare</p>
+          <h2>Dove siamo</h2>
+          <!-- MODIFICA: indirizzo -->
+          <address class="indirizzo">
+            Via del Basilico 18<br>
+            55100 Lucca (LU)
+          </address>
+          <!-- MODIFICA: indicazioni utili (parcheggio, punti di riferimento). Se non serve, cancella questa riga -->
+          <p>Dentro le Mura, a cinque minuti a piedi da Piazza dell'Anfiteatro. Parcheggio consigliato fuori Porta Santa Maria.</p>
+
+          <!-- MODIFICA: link a Google Maps. Dopo "query=" scrivi l'indirizzo con il + al posto degli spazi -->
+          <a class="bottone bottone-oliva" href="https://www.google.com/maps/search/?api=1&amp;query=Via+del+Basilico+18+55100+Lucca" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. PRENOTA: telefono in grande + modulo di richiesta
+         ============================================================ -->
+    <section class="sezione" id="prenota">
+      <div class="contenitore due-colonne">
+
+        <div>
+          <svg class="ornamento" aria-hidden="true" focusable="false"><use href="#ramo-ulivo"/></svg>
+          <p class="occhiello">Ti aspettiamo</p>
+          <h2>Prenota un tavolo</h2>
+          <!-- MODIFICA: frase sulle prenotazioni -->
+          <p>Il modo più veloce è una telefonata. Per il fine settimana ti consigliamo di prenotare con un giorno di anticipo.</p>
+
+          <!-- MODIFICA: telefono (due volte: nel link senza spazi con +39, nel testo come preferisci) -->
+          <a class="telefono-grande" href="tel:+390583000000">0583 000000</a>
+
+          <ul class="lista-contatti">
+            <!-- MODIFICA: email (due volte: dopo mailto: e nel testo) -->
+            <li><span class="etichetta">Email</span> <a href="mailto:info@trattoriarosaebasilico.it">info@trattoriarosaebasilico.it</a></li>
+            <!-- MODIFICA: riassunto degli orari -->
+            <li><span class="etichetta">Orari</span> Mar–Dom 12:00–14:30 e 19:00–23:00</li>
+          </ul>
+        </div>
+
+        <div class="riquadro-modulo">
+          <h3>Richiedi una prenotazione</h3>
+          <!-- MODIFICA: tempi di risposta -->
+          <p class="nota">Ti richiamiamo per confermare. La prenotazione vale solo dopo la nostra conferma.</p>
+
+          <!-- DEMO: questo modulo non invia nulla. Premendo "Invia la richiesta"
+               compare solo un messaggio (vedi lo script in fondo alla pagina). -->
+          <form id="modulo-demo" method="post">
+
+            <label for="nome">Nome e cognome</label>
+            <input type="text" id="nome" name="Nome" autocomplete="name" required>
+
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="Telefono" autocomplete="tel" inputmode="tel" required>
+
+            <div class="campi-affiancati">
+              <div>
+                <label for="data">Data</label>
+                <input type="date" id="data" name="Data" required>
+              </div>
+              <div>
+                <!-- MODIFICA: orari prenotabili. Una riga <option> per ogni orario -->
+                <label for="ora">Ora</label>
+                <select id="ora" name="Ora" required>
+                  <option value="">Scegli</option>
+                  <option>12:00</option>
+                  <option>12:30</option>
+                  <option>13:00</option>
+                  <option>13:30</option>
+                  <option>19:00</option>
+                  <option>19:30</option>
+                  <option>20:00</option>
+                  <option>20:30</option>
+                  <option>21:00</option>
+                  <option>21:30</option>
+                </select>
+              </div>
+            </div>
+
+            <label for="persone">Numero di persone</label>
+            <input type="number" id="persone" name="Persone" min="1" max="30" inputmode="numeric" required>
+
+            <label for="note">Note (facoltative)</label>
+            <textarea id="note" name="Note" rows="4" placeholder="Es. seggiolone, tavolo all'aperto, compleanno"></textarea>
+
+            <button type="submit" class="bottone bottone-largo">Invia la richiesta</button>
+
+            <!-- DEMO: qui compare il messaggio dopo il clic su "Invia la richiesta" -->
+            <p class="messaggio-demo" id="messaggio-demo" role="status"></p>
+
+            <p class="nota">Allergie o intolleranze? Non scriverle qui: dillo al personale quando ti richiamiamo o al tavolo. Usiamo i tuoi dati solo per la prenotazione: leggi l'<a href="privacy.html">informativa privacy</a>.</p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       7. PIÈ DI PAGINA
+       ============================================================ -->
+  <footer class="piede">
+    <div class="contenitore">
+      <!-- MODIFICA: nome del locale -->
+      <p class="nome-piede">Trattoria Rosa &amp; Basilico</p>
+      <!-- MODIFICA: ragione sociale, indirizzo della sede e Partita IVA (obbligatoria per legge sul sito di un'attività) -->
+      <p>Trattoria Rosa &amp; Basilico di Rosanna Pieri<br>
+         Via del Basilico 18 – 55100 Lucca (LU)<br>
+         P.IVA 02345678901</p>
+      <p><a href="privacy.html">Privacy</a> · Questo sito non usa cookie.</p>
+      <!-- MODIFICA: anno. La riga "Sito realizzato da" puoi toglierla se il cliente non la vuole -->
+      <p class="piccolo">© 2026 · Sito realizzato da Fernando Giardullo</p>
+    </div>
+  </footer>
+
+  <!-- DEMO: blocca l'invio del modulo e mostra un messaggio.
+       Il browser controlla prima che i campi obbligatori siano compilati. -->
+  <script>
+    document.getElementById('modulo-demo').addEventListener('submit', function (evento) {
+      evento.preventDefault();
+      document.getElementById('messaggio-demo').textContent =
+        'Questo è un sito dimostrativo: il modulo non invia messaggi. ' +
+        'Sul tuo sito le richieste arriveranno direttamente alla tua email.';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,854 @@
+/* =====================================================================
+   STILE DEL SITO – MODELLO RISTORANTE / PIZZERIA
+   Per cambiare l'aspetto di TUTTO il sito basta modificare le variabili
+   qui sotto (la parte ":root"). Il resto del file di solito non si tocca.
+   Le sezioni del file seguono l'ordine della pagina, dall'alto in basso.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   CARATTERI (font)
+   I file dei caratteri sono nella cartella font/ del sito: così il sito
+   non si collega a Google Fonts e non invia dati a terzi.
+   Titoli: Cormorant Garamond (serif elegante, da menu stampato).
+   Testi:  Nunito Sans (morbido e leggibile anche sul telefono).
+   Licenza libera SIL OFL: vedi font/LICENZA-FONT.txt
+   --------------------------------------------------------------------- */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("font/cormorant-garamond-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap; /* il testo si vede subito, anche prima che il font sia caricato */
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("font/cormorant-garamond-600-corsivo.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("font/nunito-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("font/nunito-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  /* MODIFICA: COLORI --------------------------------------------------- */
+  /* Tutte le coppie testo/fondo qui sotto rispettano il contrasto WCAG AA.
+     Se cambi un colore, ricontrolla su https://webaim.org/resources/contrastchecker/ */
+  --colore-sfondo: #F7F1E6;          /* fondo della pagina (crema, color carta) */
+  --colore-sfondo-alt: #EFE5D2;      /* fondo delle sezioni alternate (crema più scuro) */
+  --colore-carta: #FBF7EE;           /* fondo del "foglio" del menu e del modulo */
+  --colore-testo: #3B2A20;           /* testo normale (marrone caffè, non nero) */
+  --colore-testo-leggero: #6B5446;   /* testi secondari (descrizioni dei piatti, note) */
+  --colore-principale: #B3372B;      /* rosso pomodoro: bottoni, prezzi, dettagli */
+  --colore-principale-scuro: #93291F;/* rosso quando ci passi sopra col mouse */
+  --colore-secondario: #5E6B3A;      /* verde oliva: secondo accento (ramo d'ulivo, link mappe) */
+  --colore-secondario-scuro: #4A552D;/* verde oliva più scuro, per il passaggio del mouse */
+  --colore-bordo: #D9CBB3;           /* linee sottili e bordi */
+  --colore-scuro: #3B2A20;           /* fondo del piè di pagina */
+  --colore-su-scuro: #F7F1E6;        /* testo sopra i fondi scuri */
+
+  /* MODIFICA: CARATTERI ------------------------------------------------ */
+  /* Se togli i file dalla cartella font/, il sito usa i caratteri indicati dopo la virgola */
+  --carattere-titoli: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --carattere-testo: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Misure generali (di solito non serve cambiarle) */
+  --larghezza-massima: 1120px;
+  --raggio: 14px;             /* arrotondamento morbido degli angoli */
+  --altezza-testata: 7.5rem;  /* spazio lasciato sopra quando il menu porta a una sezione */
+}
+
+
+/* ---------------------------------------------------------------------
+   BASE
+   --------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;                     /* scorrimento morbido dal menu */
+  scroll-padding-top: var(--altezza-testata);  /* la testata fissa non copre i titoli */
+}
+
+body {
+  margin: 0;
+  font-family: var(--carattere-testo);
+  font-size: 1.0625rem; /* 17px: si legge bene sul telefono */
+  line-height: 1.65;
+  color: var(--colore-testo);
+  background: var(--colore-sfondo);
+  overflow-wrap: break-word; /* le parole lunghe (es. email) vanno a capo invece di uscire dallo schermo */
+}
+
+h1, h2, h3 {
+  font-family: var(--carattere-titoli);
+  font-weight: 600;
+  font-variant-numeric: lining-nums; /* numeri tutti della stessa altezza (il Cormorant li ha "all'antica") */
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+}
+
+h1 { font-size: clamp(2.6rem, 9vw, 4.75rem); }
+h2 { font-size: clamp(2.1rem, 6vw, 3rem); }
+h3 { font-size: 1.6rem; }
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--colore-principale); }
+a:hover { color: var(--colore-principale-scuro); }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contorno ben visibile quando si naviga con la tastiera */
+:focus-visible {
+  outline: 3px solid var(--colore-principale);
+  outline-offset: 3px;
+}
+
+/* Testo letto solo dai lettori di schermo (per chi non vede) */
+.solo-lettori {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Link "Vai al contenuto": compare solo quando lo raggiungi col tasto Tab */
+.salta {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--colore-testo);
+  color: var(--colore-su-scuro);
+  border-radius: var(--raggio);
+}
+.salta:focus { top: 1rem; }
+
+/* Contenitore: tiene il contenuto al centro con i margini laterali */
+.contenitore {
+  width: 100%;
+  max-width: var(--larghezza-massima);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Occhiello: la piccola scritta sopra i titoli ("Dal 1987", "Cucina di casa"…) */
+.occhiello {
+  font-family: var(--carattere-titoli);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--colore-secondario);
+  margin: 0 0 0.25rem;
+}
+
+.nota {
+  font-size: 0.95rem;
+  color: var(--colore-testo-leggero);
+}
+
+
+/* ---------------------------------------------------------------------
+   BOTTONI
+   --------------------------------------------------------------------- */
+.bottone {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 2px solid var(--colore-principale);
+  border-radius: 999px; /* bottoni a pillola, morbidi */
+  background: var(--colore-principale);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+.bottone:hover {
+  background: var(--colore-principale-scuro);
+  border-color: var(--colore-principale-scuro);
+  color: #FFFFFF;
+}
+
+/* Bottone vuoto con il bordo chiaro (usato sopra la foto di apertura) */
+.bottone-chiaro {
+  background: transparent;
+  border-color: var(--colore-su-scuro);
+  color: var(--colore-su-scuro);
+}
+.bottone-chiaro:hover {
+  background: var(--colore-su-scuro);
+  border-color: var(--colore-su-scuro);
+  color: var(--colore-testo);
+}
+
+/* Bottone verde oliva (usato per "Apri in Google Maps") */
+.bottone-oliva {
+  background: var(--colore-secondario);
+  border-color: var(--colore-secondario);
+}
+.bottone-oliva:hover {
+  background: var(--colore-secondario-scuro);
+  border-color: var(--colore-secondario-scuro);
+}
+
+.bottone-piccolo {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.bottone-largo {
+  display: block;
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------------------
+   STRISCIA DEMO (solo sul modello dimostrativo: per il cliente si toglie dall'HTML)
+   --------------------------------------------------------------------- */
+.striscia-demo {
+  padding: 0.5rem 1rem;
+  background: var(--colore-secondario);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  text-align: center;
+}
+.striscia-demo a {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------------------
+   ELEMENTI DECORATIVI: ramo d'ulivo e linea ondulata
+   Sono disegni SVG leggeri scritti dentro index.html (cerca "ramo-ulivo").
+   --------------------------------------------------------------------- */
+.ornamento {
+  display: block;
+  width: 7rem;
+  height: 1.75rem;
+  margin: 0 0 1rem;
+  color: var(--colore-secondario);
+}
+.ornamento-centro { margin-left: auto; margin-right: auto; }
+
+.onda {
+  display: block;
+  width: 100%;
+  max-width: 14rem;
+  height: 12px;
+  margin: 0.25rem auto 1.5rem;
+  color: var(--colore-principale);
+}
+
+
+/* ---------------------------------------------------------------------
+   TESTATA (in alto, resta fissa mentre scorri)
+   --------------------------------------------------------------------- */
+.testata {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--colore-sfondo);
+  border-bottom: 1px solid var(--colore-bordo);
+}
+
+/* Sul telefono: nome e bottone in alto, menu sotto su tutta la larghezza.
+   Dal computer: nome, menu e bottone sulla stessa riga.
+   (grid-template-areas disegna la disposizione con dei "nomi" di zona) */
+.testata-interna {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "logo  bottone"
+    "menu  menu";
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.5rem;
+}
+.testata-interna .logo    { grid-area: logo; }
+.testata-interna .menu    { grid-area: menu; }
+.testata-interna .bottone { grid-area: bottone; }
+
+/* Nome del locale in alto a sinistra: "Trattoria" piccolo sopra, nome grande sotto */
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--carattere-titoli);
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--colore-testo);
+  text-decoration: none;
+}
+.logo small {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--colore-secondario);
+  margin-bottom: 0.1rem;
+}
+.logo:hover { color: var(--colore-testo); }
+
+/* Menu di navigazione */
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.1rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu a {
+  display: inline-block;
+  padding: 0.2rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--colore-testo);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.menu a:hover {
+  color: var(--colore-principale);
+  border-bottom-color: var(--colore-principale);
+}
+
+@media (min-width: 900px) {
+  :root { --altezza-testata: 5.5rem; }
+  .testata-interna {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo menu bottone";
+    gap: 2rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+  .menu ul { gap: 1.75rem; }
+  .menu a { font-size: 1rem; }
+}
+
+
+/* ---------------------------------------------------------------------
+   1. APERTURA: foto del forno a tutta larghezza con velo scuro
+   MODIFICA: la foto è img/apertura.jpg (in index.html).
+   Se la foto del cliente è molto chiara e il testo si legge male,
+   aumenta i numeri 0.80 e 0.45 del velo qui sotto (massimo 0.9).
+   --------------------------------------------------------------------- */
+.apertura {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 34rem;
+  color: var(--colore-su-scuro);
+  background: #2A1C14; /* colore di riserva mentre la foto si carica */
+  overflow: hidden;
+}
+
+.apertura-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%; /* tiene al centro il fuoco del forno anche sul telefono */
+}
+
+/* Il velo scuro: più scuro in basso a sinistra, dove sta il testo */
+.apertura::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(30, 18, 12, 0.80) 0%, rgba(30, 18, 12, 0.45) 55%, rgba(30, 18, 12, 0.30) 100%),
+    linear-gradient(to right, rgba(30, 18, 12, 0.55) 0%, rgba(30, 18, 12, 0) 70%);
+}
+
+.apertura .contenitore {
+  position: relative;
+  z-index: 1; /* il testo sta sopra la foto e il velo */
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.apertura-luogo {
+  font-family: var(--carattere-titoli);
+  font-style: italic;
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+
+.apertura h1 {
+  max-width: 16ch;
+  margin-bottom: 1rem;
+}
+
+.apertura-frase {
+  max-width: 34rem;
+  font-size: 1.1rem;
+}
+
+.apertura-bottoni {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .apertura { min-height: 40rem; }
+  .apertura .contenitore { padding-bottom: 4.5rem; }
+}
+
+
+/* ---------------------------------------------------------------------
+   SEZIONI (struttura comune)
+   --------------------------------------------------------------------- */
+.sezione {
+  padding: 4rem 0;
+}
+.sezione-alt {
+  background: var(--colore-sfondo-alt);
+}
+
+.sezione-titolo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.sezione-titolo h2 { margin-bottom: 0; }
+
+@media (min-width: 900px) {
+  .sezione { padding: 6rem 0; }
+}
+
+
+/* ---------------------------------------------------------------------
+   2. LA NOSTRA CUCINA: testo accanto alla foto (sul telefono uno sotto l'altro)
+   --------------------------------------------------------------------- */
+.racconto {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.racconto-testo p { max-width: 36rem; }
+
+/* La foto ha dietro una cornice verde oliva leggermente spostata */
+.racconto-foto {
+  position: relative;
+  margin: 0 0.75rem 0.75rem 0;
+}
+.racconto-foto::before {
+  content: "";
+  position: absolute;
+  inset: 0.75rem -0.75rem -0.75rem 0.75rem;
+  border: 2px solid var(--colore-secondario);
+  border-radius: var(--raggio);
+}
+.racconto-foto img {
+  position: relative;
+  width: 100%;
+  border-radius: var(--raggio);
+}
+
+.firma {
+  font-family: var(--carattere-titoli);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--colore-principale);
+}
+
+@media (min-width: 900px) {
+  .racconto { grid-template-columns: 1fr 1.1fr; gap: 4.5rem; }
+}
+
+
+/* ---------------------------------------------------------------------
+   3. MENU: stile menu stampato su carta
+   --------------------------------------------------------------------- */
+.menu-foglio {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: var(--colore-carta);
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+  /* doppia cornice sottile, come un menu stampato */
+  box-shadow: inset 0 0 0 6px var(--colore-carta), inset 0 0 0 7px var(--colore-bordo);
+}
+
+/* Piccole schede con le categorie: portano direttamente alla categoria (utili sul telefono) */
+.menu-schede {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+.menu-schede a {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--colore-bordo);
+  border-radius: 999px;
+  background: var(--colore-sfondo);
+  color: var(--colore-testo);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.menu-schede a:hover {
+  border-color: var(--colore-principale);
+  color: var(--colore-principale);
+}
+
+/* Le categorie: una sotto l'altra sul telefono, su due colonne dal computer */
+.menu-categorie {
+  display: grid;
+  gap: 2.75rem;
+}
+@media (min-width: 900px) {
+  .menu-foglio { padding: 3.5rem 3.5rem 3rem; }
+  .menu-categorie {
+    display: block;
+    columns: 2;
+    column-gap: 4rem;
+  }
+  .categoria {
+    break-inside: avoid; /* una categoria non si spezza tra due colonne */
+    margin-bottom: 2.75rem;
+  }
+}
+
+.categoria h3 {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--colore-principale);
+  margin-bottom: 0.25rem;
+}
+.categoria-nota {
+  text-align: center;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--colore-testo-leggero);
+  margin: 0 0 1rem;
+}
+
+.piatti {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* UN PIATTO: nome ……… prezzo, e sotto la descrizione */
+.piatto {
+  padding: 0.7rem 0;
+}
+.piatto-riga {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.piatto-nome {
+  font-family: var(--carattere-titoli);
+  font-variant-numeric: lining-nums;
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+/* la linea puntinata che collega nome e prezzo */
+.piatto-puntini {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted var(--colore-bordo);
+  transform: translateY(-0.3rem);
+}
+.piatto-prezzo {
+  font-weight: 700;
+  color: var(--colore-principale);
+  white-space: nowrap; /* il prezzo non va mai a capo */
+}
+.piatto-descrizione {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--colore-testo-leggero);
+}
+
+/* Avviso allergie in fondo al menu */
+.avviso-allergie {
+  max-width: 40rem;
+  margin: 1rem auto 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--colore-secondario);
+  border-radius: 0 var(--raggio) var(--raggio) 0;
+  background: var(--colore-sfondo-alt);
+  font-size: 0.95rem;
+}
+.avviso-allergie p:last-child { margin-bottom: 0; }
+
+
+/* ---------------------------------------------------------------------
+   4. GALLERIA: griglia "da rivista"
+   Le due foto VERTICALI (classe foto-verticale) sono alte due righe.
+   Telefono e tablet: 2 colonne. Computer: 4 colonne.
+   --------------------------------------------------------------------- */
+.galleria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense; /* riempie i buchi della griglia */
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.galleria li {
+  overflow: hidden;
+  border-radius: var(--raggio);
+}
+.galleria img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+/* Foto verticale: occupa due righe e riempie tutto lo spazio */
+.galleria .foto-verticale {
+  position: relative;
+  grid-row: span 2;
+}
+.galleria .foto-verticale img {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+
+@media (min-width: 900px) {
+  .galleria {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+
+/* ---------------------------------------------------------------------
+   5. ORARI E DOVE SIAMO
+   --------------------------------------------------------------------- */
+.due-colonne {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .due-colonne { grid-template-columns: 1fr 1fr; gap: 5rem; }
+}
+
+.tabella-orari {
+  width: 100%;
+  font-size: 0.95rem;
+  max-width: 28rem;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.tabella-orari th,
+.tabella-orari td {
+  padding: 0.6rem 0;
+  border-bottom: 1px dotted var(--colore-bordo);
+  text-align: left;
+  vertical-align: top;
+}
+.tabella-orari th {
+  width: 6.2rem;
+  font-weight: 700;
+}
+/* Il giorno di chiusura, in rosso */
+.tabella-orari .chiuso td,
+.tabella-orari .chiuso th {
+  color: var(--colore-principale);
+}
+
+.indirizzo {
+  font-style: normal;
+  font-variant-numeric: lining-nums;
+  font-family: var(--carattere-titoli);
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+
+/* ---------------------------------------------------------------------
+   6. PRENOTA: telefono grande + modulo
+   --------------------------------------------------------------------- */
+.telefono-grande {
+  display: inline-block;
+  font-variant-numeric: lining-nums;
+  font-family: var(--carattere-titoli);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 11vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--colore-principale);
+  text-decoration: none;
+  margin: 0.25rem 0 1rem;
+}
+.telefono-grande:hover { text-decoration: underline; }
+
+.lista-contatti {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.lista-contatti li { margin-bottom: 0.4rem; }
+.etichetta {
+  display: inline-block;
+  min-width: 4.5rem;
+  font-weight: 700;
+}
+
+.riquadro-modulo {
+  padding: 1.75rem 1.25rem;
+  background: var(--colore-carta);
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+}
+@media (min-width: 900px) {
+  .riquadro-modulo { padding: 2.25rem 2.25rem 1.75rem; }
+}
+
+.riquadro-modulo h3 {
+  font-size: 2rem;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.3rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #A8957A; /* bordo più scuro del normale: i campi devono vedersi bene */
+  border-radius: 10px;
+  background: #FFFFFF;
+  color: var(--colore-testo);
+  font: inherit;
+  font-size: 1rem;
+}
+input,
+select { min-height: 3.1rem; } /* campi tutti della stessa altezza */
+textarea { resize: vertical; }
+
+/* Data e ora affiancate (sul telefono una sotto l'altra se non c'è spazio) */
+.campi-affiancati {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0 1rem;
+}
+
+.riquadro-modulo .bottone { margin-top: 1.5rem; }
+.riquadro-modulo .nota { margin-top: 1rem; }
+
+/* Trappola anti-spam: campo invisibile. NON toccare */
+.trappola { display: none; }
+
+
+/* ---------------------------------------------------------------------
+   PIÈ DI PAGINA
+   --------------------------------------------------------------------- */
+.piede {
+  padding: 3rem 0 2rem;
+  background: var(--colore-scuro);
+  color: var(--colore-su-scuro);
+  font-size: 0.95rem;
+}
+.piede a { color: var(--colore-su-scuro); }
+.piede a:hover { color: #FFFFFF; }
+.piede .nome-piede {
+  font-family: var(--carattere-titoli);
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.piede .piccolo { font-size: 0.85rem; opacity: 0.85; margin-bottom: 0; }
+
+
+/* ---------------------------------------------------------------------
+   PAGINE DI TESTO (privacy.html e grazie.html)
+   --------------------------------------------------------------------- */
+.pagina-testo {
+  max-width: 46rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+.pagina-testo h1 { font-size: clamp(2.4rem, 8vw, 3.25rem); }
+.pagina-testo h2 { font-size: 1.75rem; margin-top: 2rem; }
+.pagina-testo li { margin-bottom: 0.5rem; }
+
+
+/* ---------------------------------------------------------------------
+   ANIMAZIONI (pochissime e leggere)
+   Il testo dell'apertura compare con una piccola dissolvenza.
+   Chi ha chiesto al telefono/computer di "ridurre il movimento" non vede animazioni.
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .apertura .contenitore {
+    animation: compari 0.9s ease-out both;
+  }
+  @keyframes compari {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* =====================================================================
+   SOLO DEMO: messaggio del modulo dimostrativo
+   ===================================================================== */
+.messaggio-demo:empty { display: none; }
+.messaggio-demo {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  background: var(--colore-sfondo-alt);
+  border-left: 4px solid var(--colore-principale);
+  border-radius: 0 var(--raggio) var(--raggio) 0;
+  color: var(--colore-testo);
+  font-weight: 700;
+}
