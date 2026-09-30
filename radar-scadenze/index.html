@@ -5,98 +5,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Radar Scadenze – Abbonamenti, bollette e scadenze auto</title>
 <meta name="description" content="Radar Scadenze: abbonamenti, bollette e scadenze dell'auto in un'unica app per iPhone e Android, con un promemoria prima di ogni pagamento. Gratis fino a 5 voci, Pro con acquisto unico.">
-<meta name="theme-color" content="#07060f">
+<meta name="theme-color" content="#0a0f1e">
 <meta property="og:title" content="Radar Scadenze">
 <meta property="og:description" content="Abbonamenti, bollette e scadenze dell'auto in un'unica app, con un promemoria prima di ogni pagamento.">
 <meta property="og:image" content="https://fernandogiardullo.it/radar-scadenze/icona.png">
 <link rel="icon" href="icona.png">
-<link rel="stylesheet" href="../style.css">
+<link rel="preload" href="../font/fraunces-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../premium.css">
 </head>
 <body>
-<div class="aurora" aria-hidden="true"><span class="a"></span><span class="b"></span></div>
+<div class="aurora" aria-hidden="true"></div>
 
-<div class="pagina">
-  <header class="testata">
-    <a class="marchio" href="../index.html"><span class="sigla">FG</span>Fernando Giardullo</a>
-    <nav class="menu">
-      <a class="indietro" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Home</a>
+<header class="testata">
+  <div class="contenitore">
+    <a class="marchio" href="../index.html" aria-label="Fernando Giardullo, home">
+      <span class="sigla" aria-hidden="true">FG</span>
+      <span class="nome-esteso">Fernando Giardullo</span>
+    </a>
+    <nav class="menu" aria-label="Menu principale">
+      <a href="../app/index.html" aria-current="page">App</a>
+      <a href="../siti-web/index.html">Siti web</a>
+      <a href="../index.html#chi-sono">Chi sono</a>
+      <a href="../index.html#contatti">Contatti</a>
     </nav>
-  </header>
+    <a class="bottone oro" href="../siti-web/index.html#modelli">Scegli il tuo modello</a>
+  </div>
+</header>
 
-  <main>
-    <!-- Apertura -->
-    <section class="eroe">
+<main>
+  <!-- ============ APERTURA ============ -->
+  <section class="radar-apertura">
+    <div class="contenitore">
       <div>
-        <img class="icona" src="icona.png" alt="Icona di Radar Scadenze" width="112" height="112">
-        <h1>Radar<br><span class="sfumato">Scadenze</span></h1>
+        <a class="torna" href="../app/index.html">← Tutte le app</a>
+        <div>
+          <span class="icona-radar"><img src="icona.png" alt="Icona di Radar Scadenze" width="96" height="96"></span>
+        </div>
+        <h1>Radar <em class="oro">Scadenze</em></h1>
         <p class="sotto">Abbonamenti, bollette e scadenze dell'auto in un'unica app. Ti avvisa prima di ogni pagamento, così niente ti coglie di sorpresa.</p>
+        <!-- MODIFICA: quando l'app è sugli store, trasforma questi <span> in <a href="LINK DELLO STORE"> e togli "spento" e "in arrivo" -->
         <div class="azioni">
-          <span class="bottone pieno spento">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3-1.5z"/></svg>
+          <!-- MODIFICA: quando l'app è pubblicata, sostituire con il badge ufficiale scaricato da Apple Marketing Tools / Google Play badges, con il link alla scheda dello store -->
+          <span class="bottone oro spento" aria-disabled="true">
             App Store · in arrivo
           </span>
-          <span class="bottone spento">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2c-.3.3-.5.8-.5 1.4v16.8c0 .6.2 1.1.5 1.4l9.4-9.8zM14.2 13.2l2.6 2.7-11.2 6.4c-.4.2-.8.3-1.1.2zM14.2 10.8L4.5 1.5c.3-.1.7 0 1.1.2l11.2 6.4zM18.1 8.9l3 1.7c1 .6 1 1.6 0 2.2l-3 1.7-2.8-2.9z"/></svg>
+          <!-- MODIFICA: quando l'app è pubblicata, sostituire con il badge ufficiale scaricato da Apple Marketing Tools / Google Play badges, con il link alla scheda dello store -->
+          <span class="bottone spento" aria-disabled="true">
             Google Play · in arrivo
           </span>
-          </div>
-        <div class="azioni">
-          <a class="bottone" href="#galleria">Guarda l'app ↓</a>
+        </div>
+        <a class="link-sotto" href="#galleria">Guarda l'app ↓</a>
+      </div>
+      <div class="scena-telefono">
+        <div class="telefono-cornice">
+          <img src="foto/home.webp" alt="Schermata principale di Radar Scadenze con i pagamenti del mese" width="540" height="1171" fetchpriority="high">
         </div>
       </div>
-      <div class="telefono"><img src="foto/home.webp" alt="Schermata principale di Radar Scadenze con i pagamenti del mese" width="540" height="1171"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Cos'è -->
-    <section class="sezione">
-      <p class="occhiello">Cos'è</p>
-      <h2>Tutte le spese che tornano, <span class="sfumato">in un posto solo.</span></h2>
-      <p class="intro">Netflix e Spotify, la bolletta della luce, il telefono, il bollo e l'assicurazione dell'auto: ogni spesa ricorrente ha una data diversa ed è facile dimenticarne una. Radar Scadenze le mette tutte insieme, ti dice quanto paghi ogni mese e ti avvisa qualche giorno prima di ogni scadenza.</p>
-      <div class="griglia">
-        <div class="funzione">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+  <!-- ============ COS'È ============ -->
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Cos'è</p>
+        <h2>Tutte le spese che tornano, <em class="oro">in un posto solo.</em></h2>
+        <p class="intro">Netflix e Spotify, la bolletta della luce, il telefono, il bollo e l'assicurazione dell'auto: ogni spesa ricorrente ha una data diversa ed è facile dimenticarne una. Radar Scadenze le mette tutte insieme, ti dice quanto paghi ogni mese e ti avvisa qualche giorno prima di ogni scadenza.</p>
+      </div>
+      <div class="funzioni compare">
+        <div class="riquadro funzione">
+          <span class="icona-tonda" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
           <h3>Oltre 170 servizi pronti</h3>
           <p>Streaming, telefonia, luce e gas, banche, assicurazioni. Scegli e sono già compilati.</p>
         </div>
-        <div class="funzione">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14l-1.5-5.5A2 2 0 0 0 15.6 10H8.4a2 2 0 0 0-1.9 1.5z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
+        <div class="riquadro funzione">
+          <span class="icona-tonda" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1.5-5.5A2 2 0 0 0 15.6 10H8.4a2 2 0 0 0-1.9 1.5z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></span>
           <h3>Anche l'auto</h3>
           <p>Bollo, RC auto e revisione accanto agli abbonamenti, con le loro scadenze annuali.</p>
         </div>
-        <div class="funzione">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+        <div class="riquadro funzione">
+          <span class="icona-tonda" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span>
           <h3>Promemoria puntuali</h3>
           <p>Una notifica qualche giorno prima del rinnovo, all'ora che preferisci.</p>
         </div>
-        <div class="funzione">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg>
+        <div class="riquadro funzione">
+          <span class="icona-tonda" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></span>
           <h3>Quanto spendi davvero</h3>
           <p>Il totale del mese e dell'anno, diviso per categoria. E, se vuoi, quanto ti resta dello stipendio.</p>
         </div>
-        <div class="funzione">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <div class="riquadro funzione">
+          <span class="icona-tonda" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
           <h3>Privata per davvero</h3>
           <p>Niente account e niente pubblicità. I dati restano sul tuo telefono, protetti da Face ID o impronta.</p>
         </div>
-        <div class="funzione">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div class="riquadro funzione">
+          <span class="icona-tonda" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
           <h3>Pronta in un minuto</h3>
           <p>Scegli i servizi che usi al primo avvio e la tua lista è già fatta.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Gratis e Pro -->
-    <section class="sezione" id="prezzi">
-      <p class="occhiello">Gratis e Pro</p>
-      <h2>Parti gratis. <span class="sfumato">Passa a Pro quando vuoi.</span></h2>
-      <p class="intro">La versione gratuita è completa, non una prova a tempo. Radar Pro si sblocca con un acquisto unico dentro l'app.</p>
-      <div class="piani">
-        <div class="piano">
+  <!-- ============ GRATIS E PRO ============ -->
+  <!-- MODIFICA: quando conosci il prezzo di Radar Pro, scrivilo al posto di "Acquisto unico" -->
+  <section class="sezione" id="prezzi">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Gratis e Pro</p>
+        <h2>Parti gratis. <em class="oro">Passa a Pro quando vuoi.</em></h2>
+        <p class="intro">La versione gratuita è completa, non una prova a tempo. Radar Pro si sblocca con un acquisto unico dentro l'app.</p>
+      </div>
+      <div class="piani-due compare">
+        <div class="riquadro piano">
           <div class="nome">Gratis</div>
           <div class="prezzo">0 €</div>
           <p class="nota">Per sempre</p>
-          <ul>
+          <ul class="spunte">
             <li>Fino a 5 voci</li>
             <li>1 promemoria per voce</li>
             <li>Catalogo di oltre 170 servizi</li>
@@ -106,12 +131,12 @@
             <li>Tema chiaro, scuro o automatico</li>
           </ul>
         </div>
-        <div class="piano pro">
+        <div class="riquadro piano pro-radar">
           <span class="nastro">Consigliato</span>
           <div class="nome">Radar Pro</div>
-          <div class="prezzo">Acquisto unico</div>
+          <div class="prezzo testo">Acquisto unico</div>
           <p class="nota">Paghi una volta, tuo per sempre. Nessun abbonamento.</p>
-          <ul>
+          <ul class="spunte">
             <li>Tutto quello della versione gratuita</li>
             <li><strong>Voci illimitate</strong></li>
             <li><strong>Fino a 3 promemoria per voce</strong>, con giorni e orari a scelta</li>
@@ -120,74 +145,90 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Perché Pro -->
-    <section class="sezione">
-      <p class="occhiello">Perché scegliere Pro</p>
-      <h2>Tutte le tue spese, <span class="sfumato">non solo cinque.</span></h2>
-      <div class="perche">
-        <div>
+  <!-- ============ PERCHÉ PRO ============ -->
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Perché scegliere Pro</p>
+        <h2>Tutte le tue spese, <em class="oro">non solo cinque.</em></h2>
+      </div>
+      <div class="punti compare">
+        <div class="punto">
+          <span class="numero">01</span>
           <h3>Le spese sono più di 5</h3>
           <p>Streaming, telefono, internet, luce, gas, bollo, assicurazione: una casa normale le supera in fretta. Con Pro le segui tutte.</p>
         </div>
-        <div>
+        <div class="punto">
+          <span class="numero">02</span>
           <h3>Avvisi quando servono a te</h3>
           <p>Per il bollo una settimana prima, per Netflix il giorno stesso. Fino a tre promemoria per voce, ognuno col suo orario.</p>
         </div>
-        <div>
+        <div class="punto">
+          <span class="numero">03</span>
           <h3>Niente abbonamento</h3>
           <p>Un'app che ti aiuta a tenere d'occhio gli abbonamenti non dovrebbe esserlo. Paghi una volta e basta.</p>
         </div>
-        <div>
+        <div class="punto">
+          <span class="numero">04</span>
           <h3>Sostieni chi la fa</h3>
           <p>Radar è sviluppata da una persona sola, senza pubblicità. Pro è ciò che la fa crescere.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Galleria -->
-    <section class="sezione" id="galleria">
-      <p class="occhiello">Galleria</p>
-      <h2>Dai un'occhiata <span class="sfumato">all'app.</span></h2>
+  <!-- ============ GALLERIA ============ -->
+  <section class="sezione" id="galleria">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Galleria</p>
+        <h2>Dai un'occhiata <em class="oro">all'app.</em></h2>
+      </div>
       <p class="scorri">Scorri di lato per vedere tutte le schermate →</p>
       <div class="galleria">
         <figure>
-          <div class="telefono"><img src="foto/home.webp" alt="Schermata Scadenze" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/home.webp" alt="Schermata Scadenze" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Il mese a colpo d'occhio</strong><span>In alto quanto devi ancora pagare questo mese, sotto le scadenze divise per mese, ognuna col suo totale.</span></figcaption>
         </figure>
         <figure>
-          <div class="telefono"><img src="foto/aggiungi.webp" alt="Schermata Aggiungi con il catalogo dei servizi" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/aggiungi.webp" alt="Schermata Aggiungi con il catalogo dei servizi" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Oltre 170 servizi pronti</strong><span>Cerca Netflix, luce, bollo o la tua banca: nome, categoria e rinnovo sono già compilati. Manca qualcosa? Crei una voce tua.</span></figcaption>
         </figure>
         <figure>
-          <div class="telefono"><img src="foto/riepilogo.webp" alt="Schermata Riepilogo con la spesa annuale" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/riepilogo.webp" alt="Schermata Riepilogo con la spesa annuale" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Quanto spendi in un anno</strong><span>Il totale annuo e la media al mese, divisi per categoria, con il peso di ogni voce.</span></figcaption>
         </figure>
         <figure>
-          <div class="telefono"><img src="foto/promemoria.webp" alt="Schermata Promemoria" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/promemoria.webp" alt="Schermata Promemoria" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Promemoria su misura</strong><span>Scegli quanti giorni prima e a che ora essere avvisato. Con Pro fino a tre avvisi per ogni voce.</span></figcaption>
         </figure>
         <figure>
-          <div class="telefono"><img src="foto/aspetto.webp" alt="Schermata Aspetto con tema e colori" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/aspetto.webp" alt="Schermata Aspetto con tema e colori" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Il tuo stile</strong><span>Tema chiaro, scuro o automatico, e con Pro otto colori tra cui scegliere.</span></figcaption>
         </figure>
         <figure>
-          <div class="telefono"><img src="foto/faceid.webp" alt="Schermata Privacy e sicurezza con blocco Face ID" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/faceid.webp" alt="Schermata Privacy e sicurezza con blocco Face ID" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Protetta e privata</strong><span>Blocca l'app con Face ID, impronta o codice. Le tue spese non lasciano mai il telefono.</span></figcaption>
         </figure>
         <figure>
-          <div class="telefono"><img src="foto/pro.webp" alt="Schermata Radar Pro con i vantaggi" width="540" height="1171" loading="lazy"></div>
+          <div class="telefono-cornice"><img src="foto/pro.webp" alt="Schermata Radar Pro con i vantaggi" width="540" height="1171" loading="lazy"></div>
           <figcaption><strong>Radar Pro</strong><span>Voci illimitate, più promemoria e tutti i colori. Un solo pagamento, per sempre.</span></figcaption>
         </figure>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Assistenza -->
-    <section class="sezione stretta" id="assistenza">
-      <p class="occhiello">Assistenza</p>
-      <h2>Domande frequenti</h2>
-      <div class="riquadro">
+  <!-- ============ ASSISTENZA ============ -->
+  <section class="sezione" id="assistenza">
+    <div class="contenitore stretto">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Assistenza</p>
+        <h2>Domande frequenti</h2>
+      </div>
+      <div class="riquadro faq compare">
         <details>
           <summary>Le notifiche non arrivano</summary>
           <p>Apri <strong>Impostazioni dell'iPhone → Notifiche → Radar</strong> e attiva "Consenti notifiche". Nell'app, da <strong>Impostazioni → Promemoria</strong>, puoi inviare una notifica di prova. Se la modalità Full immersion è attiva, le notifiche potrebbero essere silenziate.</p>
@@ -209,14 +250,25 @@
           <p>I pagamenti sono gestiti da Apple: puoi chiedere un rimborso su <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
         </details>
       </div>
-      <div class="riquadro evidenza">
-        <p><strong>Non hai trovato la risposta?</strong> Scrivimi a
-        <a href="mailto:giardullo1988@gmail.com?subject=Radar%20Scadenze">giardullo1988@gmail.com</a>. Rispondo di solito entro 2 giorni lavorativi.</p>
+      <div class="riquadro contatto bordo-oro compare staccato">
+        <h3>Non hai trovato la risposta?</h3>
+        <p>Scrivimi a <a href="mailto:giardullo1988@gmail.com?subject=Radar%20Scadenze">giardullo1988@gmail.com</a>. Rispondo di solito entro 2 giorni lavorativi.</p>
       </div>
-    </section>
-  </main>
 
-  <footer><a href="privacy.html">Privacy</a> · <a href="termini.html">Termini d'uso</a> · <a href="../privacy-sito.html">Privacy del sito</a> · © 2026 Fernando Giardullo</footer>
-</div>
+      <nav class="documenti-radar" aria-label="Documenti di Radar Scadenze">
+        <a href="privacy.html">Privacy</a>
+        <a href="termini.html">Termini d'uso</a>
+        <a href="../privacy-sito.html">Privacy del sito</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="piede">
+  <div class="contenitore">
+    <span>© 2026 Fernando Giardullo</span>
+    <span><a href="../index.html">Home</a> · <a href="../privacy-sito.html">Privacy e cookie</a></span>
+  </div>
+</footer>
 </body>
 </html>

@@ -3,147 +3,172 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fernando Giardullo – App per smartphone e siti web</title>
-<meta name="description" content="Fernando Giardullo, sviluppatore indipendente: app per iPhone e Android semplici e utili, e siti web pronti per attività come officine, ristoranti, parrucchieri e artigiani.">
-<meta name="theme-color" content="#07060f">
+<!-- MODIFICA: titolo e descrizione che compaiono su Google -->
+<title>Fernando Giardullo – App per iPhone e Android, siti web per attività</title>
+<meta name="description" content="Fernando Giardullo, sviluppatore indipendente: app per iPhone e Android semplici e rispettose della privacy, e siti web pronti per la tua attività a prezzo fisso, senza abbonamenti.">
+<meta name="theme-color" content="#0a0f1e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://fernandogiardullo.it/">
 <meta property="og:title" content="Fernando Giardullo – App e siti web">
-<meta property="og:description" content="App per smartphone semplici e utili, e siti web pronti per la tua attività.">
-<meta property="og:image" content="https://fernandogiardullo.it/radar-scadenze/icona.png">
-<link rel="icon" href="radar-scadenze/icona.png">
-<style>
-  :root {
-    --fondo: #07060f;
-    --testo: #f5f5f7;
-    --tenue: rgba(245, 245, 247, .68);
-    --vetro: rgba(255, 255, 255, .07);
-    --bordo: rgba(255, 255, 255, .14);
-    --viola: #6d5dfc;
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; }
-  body {
-    margin: 0;
-    background: var(--fondo);
-    color: var(--testo);
-    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* ---------- Sfondo: aurora animata ---------- */
-  .aurora { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
-  .aurora span {
-    position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55;
-    will-change: transform;
-  }
-  .aurora .a { width: 60vmax; height: 60vmax; background: #5b3cf5; top: -20vmax; left: -15vmax; animation: giro1 22s ease-in-out infinite alternate; }
-  .aurora .b { width: 50vmax; height: 50vmax; background: #0fb5c9; bottom: -22vmax; right: -12vmax; animation: giro2 26s ease-in-out infinite alternate; }
-  .aurora .c { width: 38vmax; height: 38vmax; background: #d6336c; top: 35%; left: 45%; opacity: .35; animation: giro3 30s ease-in-out infinite alternate; }
-  @keyframes giro1 { to { transform: translate(18vmax, 14vmax) scale(1.15); } }
-  @keyframes giro2 { to { transform: translate(-16vmax, -12vmax) scale(1.1); } }
-  @keyframes giro3 { to { transform: translate(-22vmax, 10vmax) scale(.85); } }
-
-  /* griglia sottile che sfuma verso i bordi */
-  .griglia {
-    position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background-image:
-      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size: 56px 56px;
-    -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
-            mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
-  }
-
-  /* ---------- Struttura ---------- */
-  .schermo { min-height: 100svh; display: flex; flex-direction: column; padding: 20px 16px calc(20px + env(safe-area-inset-bottom)); max-width: 1100px; margin: 0 auto; }
-  .testata { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .marchio { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 700; }
-  .sigla {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: linear-gradient(135deg, #7c6cff, #0fb5c9); color: #fff;
-    display: grid; place-items: center; font-size: 15px; letter-spacing: .5px;
-  }
-  .menu { display: flex; gap: 20px; }
-  .menu a { color: var(--tenue); text-decoration: none; font-weight: 600; }
-  .menu a:hover { color: var(--testo); }
-
-  .centro { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 48px 0; }
-  .ciao {
-    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
-    padding: 6px 14px; border-radius: 99px; background: var(--vetro); border: 1px solid var(--bordo);
-    font-size: 14px; font-weight: 600; color: var(--tenue); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  }
-  .ciao i { width: 8px; height: 8px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
-  h1 {
-    font-size: clamp(44px, 10.5vw, 104px); line-height: .98; letter-spacing: -0.035em;
-    margin: 22px 0 22px; font-weight: 800;
-  }
-  h1 .sfumato {
-    background: linear-gradient(90deg, #a99bff, #52e0f0 55%, #ff8fb8);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .sotto { font-size: clamp(18px, 2.4vw, 22px); color: var(--tenue); max-width: 32em; margin: 0; }
-
-  /* ---------- Le due porte: App e Siti web ---------- */
-  .porte { display: grid; gap: 16px; margin-top: 40px; }
-  @media (min-width: 760px) { .porte { grid-template-columns: 1fr 1fr; } }
-  .porta {
-    display: flex; flex-direction: column; gap: 6px; padding: 26px;
-    border-radius: 24px; background: var(--vetro); border: 1px solid var(--bordo);
-    color: inherit; text-decoration: none;
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    transition: transform .15s, background .15s, border-color .15s;
-  }
-  .porta:hover { transform: translateY(-3px); background: rgba(255,255,255,.1); border-color: rgba(169,155,255,.55); }
-  .porta .tipo { color: #52e0f0; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
-  .porta strong { font-size: 26px; letter-spacing: -.02em; line-height: 1.15; }
-  .porta span.desc { color: var(--tenue); }
-  .porta .vai { margin-top: 10px; font-weight: 700; }
-  .porta:focus-visible, .menu a:focus-visible, .marchio:focus-visible { outline: 3px solid #52e0f0; outline-offset: 3px; }
-
-  footer { color: rgba(245,245,247,.45); font-size: 14px; }
-  footer a { color: rgba(245,245,247,.6); }
-
-  @media (prefers-reduced-motion: reduce) {
-    .aurora span { animation: none; }
-    .porta { transition: none; }
-  }
-</style>
+<meta property="og:description" content="App per iPhone e Android semplici e rispettose della privacy, e siti web per la tua attività a prezzo fisso.">
+<meta property="og:image" content="https://fernandogiardullo.it/img/anteprima-sito.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="font/fraunces-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="premium.css">
 </head>
 <body>
-<div class="aurora" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
-<div class="griglia" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
 
-<div class="schermo">
-  <header class="testata">
-    <a class="marchio" href="./index.html"><span class="sigla">FG</span>Fernando Giardullo</a>
-    <nav class="menu">
+<header class="testata">
+  <div class="contenitore">
+    <a class="marchio" href="index.html" aria-label="Fernando Giardullo, home">
+      <span class="sigla" aria-hidden="true">FG</span>
+      <span class="nome-esteso">Fernando Giardullo</span>
+    </a>
+    <nav class="menu" aria-label="Menu principale">
       <a href="app/index.html">App</a>
       <a href="siti-web/index.html">Siti web</a>
+      <a href="#chi-sono">Chi sono</a>
+      <a href="#contatti">Contatti</a>
     </nav>
-  </header>
+    <a class="bottone oro" href="siti-web/index.html#modelli">Scegli il tuo modello</a>
+  </div>
+</header>
 
-  <main class="centro">
-    <span class="ciao"><i></i>App e siti web</span>
-    <h1>App e siti web,<br><span class="sfumato">semplici e utili.</span></h1>
-    <p class="sotto">Sono Fernando, sviluppatore indipendente. Creo app per smartphone e siti web per attività: semplici da usare, chiari e fatti bene.</p>
+<main>
+  <!-- ============ APERTURA ============ -->
+  <section class="apertura">
+    <div class="contenitore">
+      <div>
+        <p class="occhiello">Sviluppatore indipendente</p>
+        <!-- MODIFICA: titolo principale -->
+        <h1>App e siti web, <em class="oro">semplici</em> e fatti bene.</h1>
+        <!-- MODIFICA: sottotitolo -->
+        <p class="sotto">Sono Fernando. Creo app per iPhone e Android che rispettano i tuoi dati e siti web per attività locali: prezzo chiaro, niente abbonamenti, tutto intestato a te.</p>
+        <div class="azioni">
+          <a class="bottone oro" href="siti-web/index.html">Scopri i siti web</a>
+          <a class="bottone" href="app/index.html">Le mie app</a>
+        </div>
+      </div>
 
-    <div class="porte">
-      <a class="porta" href="app/index.html">
-        <span class="tipo">App</span>
-        <strong>App per iPhone e Android</strong>
-        <span class="desc">Semplici da usare, senza pubblicità e senza registrazioni. I tuoi dati restano sul telefono.</span>
-        <span class="vai">Scopri le app →</span>
-      </a>
-      <a class="porta" href="siti-web/index.html">
-        <span class="tipo">Siti web</span>
-        <strong>Il sito per la tua attività</strong>
-        <span class="desc">Modelli pronti per officine, ristoranti, parrucchieri e artigiani, personalizzati con i tuoi dati. Prezzo chiaro, nessun abbonamento.</span>
-        <span class="vai">Scopri come funziona →</span>
-      </a>
+      <!-- Portatile e telefono disegnati in CSS, con due schermate vere -->
+      <div class="scena">
+        <div class="portatile">
+          <div class="display">
+            <img src="img/demo-officina.webp" width="960" height="600" fetchpriority="high"
+                 alt="Parte alta del sito dimostrativo per un'officina meccanica, visto da computer">
+          </div>
+          <div class="base" aria-hidden="true"></div>
+        </div>
+        <div class="cellulare">
+          <img src="img/radar-home.webp" width="450" height="975"
+               alt="Schermata principale dell'app Radar Scadenze con i pagamenti dei prossimi mesi">
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <footer><a href="privacy-sito.html">Privacy e cookie</a> · © 2026 Fernando Giardullo</footer>
-</div>
+  <!-- ============ APP E SITI WEB ============ -->
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="porte">
+        <div class="riquadro porta solleva compare">
+          <span class="icona-tonda" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>
+          </span>
+          <h2 class="titolo-porta">App per iPhone e Android, semplici e rispettose della privacy</h2>
+          <p>Senza pubblicità e senza registrazioni. I tuoi dati restano sul telefono, non su un server.</p>
+          <a class="bottone" href="app/index.html">Scopri le app</a>
+        </div>
+        <div class="riquadro porta solleva compare">
+          <span class="icona-tonda" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 8h19M8 21h8M12 18v3"/></svg>
+          </span>
+          <h2 class="titolo-porta">Il sito per la tua attività</h2>
+          <p>Modelli pronti, personalizzati con i tuoi dati. Prezzo fisso, nessun abbonamento, tutto intestato a te.</p>
+          <a class="bottone oro" href="siti-web/index.html#modelli">Guarda i modelli</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PERCHÉ CON ME ============ -->
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Perché con me</p>
+        <h2>Regole chiare, scritte prima di iniziare.</h2>
+      </div>
+      <!-- MODIFICA: i quattro punti -->
+      <div class="punti compare">
+        <div class="punto">
+          <span class="numero">01</span>
+          <h3>Prezzo fisso e chiaro</h3>
+          <p>Sai quanto spendi prima di iniziare: tre pacchetti con il prezzo scritto, niente preventivi a sorpresa.</p>
+        </div>
+        <div class="punto">
+          <span class="numero">02</span>
+          <h3>Nessun abbonamento</h3>
+          <p>Il sito lo paghi una volta. La gestione annuale esiste, ma è facoltativa.</p>
+        </div>
+        <div class="punto">
+          <span class="numero">03</span>
+          <h3>Il sito è tuo</h3>
+          <p>Dominio e account intestati a te, e ricevi tutti i file del sito. Se un giorno vuoi cambiare, sei libero.</p>
+        </div>
+        <div class="punto">
+          <span class="numero">04</span>
+          <h3>Veloce e senza cookie</h3>
+          <p>Pagine leggere e nessuno strumento di tracciamento: il banner dei cookie non serve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHI SONO ============ -->
+  <section class="sezione" id="chi-sono">
+    <div class="contenitore">
+      <div class="riquadro chi-sono compare">
+        <!-- MODIFICA: foto
+             Per mettere la tua foto: salvala come img/fernando.webp (quadrata, circa 440×440 pixel)
+             e sostituisci la riga <span class="iniziali" ...>FG</span> qui sotto con:
+             <img src="img/fernando.webp" width="440" height="440" alt="Fernando Giardullo" loading="lazy"> -->
+        <div class="foto">
+          <span class="iniziali" aria-hidden="true">FG</span>
+        </div>
+        <div>
+          <p class="occhiello">Chi sono</p>
+          <h2>Fernando Giardullo</h2>
+          <!-- MODIFICA: presentazione -->
+          <p class="tenue">Sono uno sviluppatore indipendente. Faccio app e siti web semplici e curati, per persone e attività che vogliono cose chiare, che funzionano e che restano loro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATTI ============ -->
+  <section class="sezione" id="contatti">
+    <div class="contenitore">
+      <div class="riquadro contatto bordo-oro compare">
+        <p class="occhiello">Contatti</p>
+        <h2>Scrivimi un'email</h2>
+        <p>Per un sito, una domanda su un'app o qualsiasi altra cosa. Rispondo entro 48 ore lavorative.</p>
+        <a class="bottone oro" href="mailto:giardullo1988@gmail.com">Scrivimi un'email</a>
+        <p class="email">giardullo1988@gmail.com</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="piede">
+  <div class="contenitore">
+    <span>© 2026 Fernando Giardullo</span>
+    <a href="privacy-sito.html">Privacy e cookie</a>
+  </div>
+</footer>
 </body>
 </html>

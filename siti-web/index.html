@@ -5,92 +5,139 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Siti web per attività – Fernando Giardullo</title>
 <meta name="description" content="Siti web pronti per officine, ristoranti, parrucchieri e artigiani, personalizzati con i tuoi dati e messi online a tuo nome. Prezzo fisso, nessun abbonamento.">
-<meta name="theme-color" content="#07060f">
+<meta name="theme-color" content="#0a0f1e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://fernandogiardullo.it/siti-web/">
 <meta property="og:title" content="Siti web per attività – Fernando Giardullo">
 <meta property="og:description" content="Il sito della tua attività, pronto in pochi giorni. Prezzo fisso, nessun abbonamento, tutto intestato a te.">
-<meta property="og:image" content="https://fernandogiardullo.it/radar-scadenze/icona.png">
-<link rel="icon" href="../radar-scadenze/icona.png">
-<link rel="stylesheet" href="../style.css">
+<meta property="og:image" content="https://fernandogiardullo.it/img/anteprima-sito.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../font/fraunces-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../premium.css">
 </head>
 <body>
-<div class="aurora" aria-hidden="true"><span class="a"></span><span class="b"></span></div>
+<div class="aurora" aria-hidden="true"></div>
 
-<div class="pagina">
-  <header class="testata">
-    <a class="marchio" href="../index.html"><span class="sigla">FG</span>Fernando Giardullo</a>
-    <nav class="menu">
+<header class="testata">
+  <div class="contenitore">
+    <a class="marchio" href="../index.html" aria-label="Fernando Giardullo, home">
+      <span class="sigla" aria-hidden="true">FG</span>
+      <span class="nome-esteso">Fernando Giardullo</span>
+    </a>
+    <nav class="menu" aria-label="Menu principale">
       <a href="../app/index.html">App</a>
-      <a href="./index.html" aria-current="page">Siti web</a>
+      <a href="index.html" aria-current="page">Siti web</a>
+      <a href="../index.html#chi-sono">Chi sono</a>
+      <a href="#contatti">Contatti</a>
     </nav>
-  </header>
+    <a class="bottone oro" href="#modelli">Scegli il tuo modello</a>
+  </div>
+</header>
 
-  <main>
-    <!-- ============ APERTURA ============ -->
-    <section class="eroe-breve">
+<main>
+  <!-- ============ APERTURA ============ -->
+  <section class="apertura-breve">
+    <div class="contenitore">
       <p class="occhiello">Siti web per attività</p>
-      <h1 class="titolo-grande">Il sito della tua attività,<br><span class="sfumato">pronto in pochi giorni.</span></h1>
+      <h1>Il sito della tua attività, <em class="oro">pronto in pochi giorni.</em></h1>
       <p class="intro">Scegli un modello, mi mandi testi e foto, io lo personalizzo e lo metto online a tuo nome. Prezzo fisso, nessun abbonamento, nessuna sorpresa.</p>
       <div class="azioni">
-        <a class="bottone pieno" href="#modelli">Guarda i modelli</a>
+        <a class="bottone oro" href="#modelli">Guarda i modelli</a>
         <a class="bottone" href="#come-funziona">Come funziona</a>
       </div>
       <!-- MODIFICA: togli questa riga quando apri le vendite -->
-      <p class="avviso">Le prenotazioni aprono a breve. Se ti interessa, <a href="#contatti">scrivimi</a> e ti avviso appena sono aperte.</p>
-    </section>
+      <p class="avviso"><span>Le prenotazioni aprono a breve. Se ti interessa, <a href="#contatti">scrivimi</a> e ti avviso appena sono aperte.</span></p>
+    </div>
+  </section>
 
-    <!-- ============ MODELLI ============ -->
-    <section class="sezione" id="modelli">
-      <p class="occhiello">I modelli</p>
-      <h2>Scegli il modello per la tua attività</h2>
-      <p class="intro">Ogni modello si adatta a telefono e computer ed è già pronto con tutte le sezioni che servono. Lo personalizzo con il tuo nome, i tuoi testi, le tue foto e i tuoi colori.</p>
+  <!-- ============ MODELLI ============ -->
+  <section class="sezione" id="modelli">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">I modelli</p>
+        <h2>Scegli il modello per la tua attività</h2>
+        <p class="intro">Ogni modello si adatta a telefono e computer ed è già pronto con tutte le sezioni che servono. Lo personalizzo con il tuo nome, i tuoi testi, le tue foto e i tuoi colori.</p>
+      </div>
 
-      <!-- MODIFICA: quando un modello è pronto, cambia <div class="modello"> in <a class="modello" href="modelli/officina/index.html"> e lo stato in "Guarda l'anteprima →" -->
-      <div class="modelli">
-        <a class="modello" href="modelli/officina/index.html">
-          <strong>Officina meccanica</strong>
-          <span>Servizi, preventivo online, orari, foto dell'officina.</span>
-          <em class="stato">Guarda l'anteprima →</em>
+      <!-- MODIFICA: quando un modello è pronto:
+           1. cambia <div class="riquadro modello"> in <a class="riquadro modello solleva" href="modelli/NOME/index.html"> (e </div> finale in </a>)
+           2. sostituisci il blocco <div class="vuota">…</div> con lo screenshot:
+              <img src="../img/demo-NOME.webp" width="960" height="600" alt="Anteprima del modello …" loading="lazy">
+           3. cambia lo stato in "Guarda l'anteprima →" -->
+      <div class="modelli compare">
+        <a class="riquadro modello solleva" href="modelli/officina/index.html">
+          <div class="anteprima">
+            <img src="../img/demo-officina.webp" width="960" height="600" loading="lazy"
+                 alt="Anteprima del modello per officina meccanica">
+          </div>
+          <h3>Officina meccanica</h3>
+          <p>Servizi, preventivo online, orari, foto dell'officina.</p>
+          <span class="stato">Guarda l'anteprima →</span>
         </a>
-        <div class="modello">
-          <strong>Ristorante e pizzeria</strong>
-          <span>Menu, prenotazioni per telefono, orari, foto dei piatti.</span>
-          <em class="stato">In arrivo</em>
+
+        <div class="riquadro modello">
+          <div class="anteprima" aria-hidden="true">
+            <!-- MODIFICA: anteprima segnaposto, da sostituire con lo screenshot del modello -->
+            <div class="vuota"><i></i><i></i><i></i><span>Anteprima in arrivo</span></div>
+          </div>
+          <h3>Ristorante e pizzeria</h3>
+          <p>Menu, prenotazioni per telefono, orari, foto dei piatti.</p>
+          <span class="stato">In arrivo</span>
         </div>
-        <div class="modello">
-          <strong>Parrucchiere ed estetista</strong>
-          <span>Trattamenti e prezzi, orari, galleria dei lavori.</span>
-          <em class="stato">In arrivo</em>
+
+        <div class="riquadro modello">
+          <div class="anteprima" aria-hidden="true">
+            <!-- MODIFICA: anteprima segnaposto, da sostituire con lo screenshot del modello -->
+            <div class="vuota"><i></i><i></i><i></i><span>Anteprima in arrivo</span></div>
+          </div>
+          <h3>Parrucchiere ed estetista</h3>
+          <p>Trattamenti e prezzi, orari, galleria dei lavori.</p>
+          <span class="stato">In arrivo</span>
         </div>
-        <div class="modello">
-          <strong>Artigiani</strong>
-          <span>Idraulici, elettricisti, imbianchini: servizi, zona coperta, foto dei lavori.</span>
-          <em class="stato">In arrivo</em>
+
+        <div class="riquadro modello">
+          <div class="anteprima" aria-hidden="true">
+            <!-- MODIFICA: anteprima segnaposto, da sostituire con lo screenshot del modello -->
+            <div class="vuota"><i></i><i></i><i></i><span>Anteprima in arrivo</span></div>
+          </div>
+          <h3>Artigiani</h3>
+          <p>Idraulici, elettricisti, imbianchini: servizi, zona coperta, foto dei lavori.</p>
+          <span class="stato">In arrivo</span>
         </div>
+
         <!-- Riquadro per le attività non elencate -->
-        <div class="modello altre">
-          <strong>Altre attività</strong>
-          <span>La tua attività non è nell'elenco? Nessun problema: scegli il modello che ti piace di più. Lo personalizzo con i tuoi servizi, le tue foto e i tuoi colori. Va bene per veterinari, studi professionali, negozi, B&amp;B e qualsiasi attività locale.</span>
-          <em class="stato">Scegli uno dei modelli</em>
+        <div class="riquadro modello altre">
+          <h3>Altre attività</h3>
+          <p>La tua attività non è nell'elenco? Nessun problema: scegli il modello che ti piace di più. Lo personalizzo con i tuoi servizi, le tue foto e i tuoi colori. Va bene per veterinari, studi professionali, negozi, B&amp;B e qualsiasi attività locale.</p>
+          <span class="stato">Scegli uno dei modelli</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ PREZZI ============ -->
-    <!-- MODIFICA: prezzi. Ogni pacchetto è un blocco <div class="piano">…</div> -->
-    <section class="sezione" id="prezzi">
-      <!-- MODIFICA: quando alzi i prezzi, togli "di lancio" e la frase sotto -->
-      <p class="occhiello">Prezzi di lancio</p>
-      <h2>Un prezzo fisso, pagato una volta sola</h2>
-      <p class="intro">Tre pacchetti, dal più semplice al più completo. Nessun abbonamento obbligatorio.</p>
-      <p class="avviso">Prezzi riservati ai primi clienti: potranno aumentare in futuro. Chi prenota ora paga il prezzo che vede oggi.</p>
+  <!-- ============ PREZZI ============ -->
+  <!-- MODIFICA: prezzi. Ogni pacchetto è un blocco <div class="riquadro piano">…</div> -->
+  <section class="sezione" id="prezzi">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <!-- MODIFICA: quando alzi i prezzi, togli "di lancio" e l'avviso sotto -->
+        <p class="occhiello">Prezzi di lancio</p>
+        <h2>Un prezzo fisso, pagato una volta sola</h2>
+        <p class="intro">Tre pacchetti, dal più semplice al più completo. Nessun abbonamento obbligatorio.</p>
+        <p class="avviso"><span>Prezzi riservati ai primi clienti: potranno aumentare in futuro. Chi prenota ora paga il prezzo che vede oggi.</span></p>
+      </div>
 
-      <div class="piani">
+      <div class="piani compare">
         <!-- Pacchetto 1: Mini -->
-        <div class="piano">
+        <div class="riquadro piano">
           <div class="nome">Mini</div>
           <div class="prezzo">190 €</div>
           <p class="nota">Il biglietto da visita online: essere trovati su Google con le informazioni essenziali.</p>
-          <ul>
+          <ul class="spunte">
             <li>Una pagina con sezioni fisse: chi siamo, servizi, orari, contatti</li>
             <li>Telefono ed email cliccabili</li>
             <li>Pagina privacy, senza cookie</li>
@@ -100,12 +147,12 @@
         </div>
 
         <!-- Pacchetto 2: Pagina unica (consigliato) -->
-        <div class="piano pro">
+        <div class="riquadro piano consigliato">
           <span class="nastro">Consigliato</span>
           <div class="nome">Pagina unica</div>
           <div class="prezzo">390 €</div>
           <p class="nota">Tutto in una pagina che scorre: la scelta giusta per la maggior parte delle attività.</p>
-          <ul>
+          <ul class="spunte">
             <li>Tutte le sezioni del modello, personalizzate con i tuoi dati</li>
             <li>Galleria foto</li>
             <li>Modulo contatti che arriva alla tua email</li>
@@ -116,27 +163,32 @@
         </div>
 
         <!-- Pacchetto 3: Più pagine -->
-        <div class="piano">
+        <div class="riquadro piano">
           <div class="nome">Più pagine</div>
           <div class="prezzo">590 €</div>
           <p class="nota">Per chi ha molti servizi, un menu lungo o tante foto da mostrare.</p>
-          <ul>
+          <ul class="spunte">
             <li>Tutto quello della pagina unica</li>
             <li><strong>Fino a 5 pagine</strong> (es. servizi, menu, galleria, chi siamo)</li>
           </ul>
         </div>
       </div>
-      <p class="tenue piccola">Acconto del 50% alla prenotazione, saldo prima della messa online.</p>
 
-      <p class="tenue piccola">Dopo la consegna puoi occuparti da solo dei rinnovi oppure lasciarli a me: <a href="#rinnovi">vedi le due strade</a>.</p>
-    </section>
+      <div class="note-prezzi">
+        <p>Acconto del 50% alla prenotazione, saldo prima della messa online.</p>
+        <p>Dopo la consegna puoi occuparti da solo dei rinnovi oppure lasciarli a me: <a href="#rinnovi">vedi le due strade</a>.</p>
+      </div>
+    </div>
+  </section>
 
-    
-    <!-- ============ COME FUNZIONA ============ -->
-    <section class="sezione" id="come-funziona">
-      <p class="occhiello">Come funziona</p>
-      <h2>Dalla scelta al sito online, passo per passo</h2>
-      <ol class="passi">
+  <!-- ============ COME FUNZIONA ============ -->
+  <section class="sezione" id="come-funziona">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Come funziona</p>
+        <h2>Dalla scelta al sito online, passo per passo</h2>
+      </div>
+      <ol class="passi compare">
         <li><strong>Scegli il modello</strong><span>Guarda le anteprime e scegli quello adatto alla tua attività.</span></li>
         <li><strong>Prenoti con l'acconto</strong><span>Paghi il 50% del prezzo per prenotare il tuo sito.</span></li>
         <li><strong>Compili il questionario</strong><span>Un modulo unico con testi, foto, orari, contatti e colori. Tutto quello che mi serve, in una volta sola.</span></li>
@@ -145,16 +197,20 @@
         <li><strong>Paghi il saldo</strong><span>Quando il sito ti piace, paghi il restante 50%.</span></li>
         <li><strong>Il sito va online</strong><span>Lo metto online con il tuo dominio e ti consegno tutto: file, accessi e istruzioni.</span></li>
       </ol>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ COSA È INCLUSO ============ -->
-    <section class="sezione">
-      <p class="occhiello">Cosa compri</p>
-      <h2>Cosa è incluso e cosa no</h2>
-      <div class="due">
-        <div class="riquadro incluso">
+  <!-- ============ COSA È INCLUSO ============ -->
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Cosa compri</p>
+        <h2>Cosa è incluso e cosa no</h2>
+      </div>
+      <div class="due compare">
+        <div class="riquadro">
           <h3>Incluso</h3>
-          <ul>
+          <ul class="spunte">
             <li>Personalizzazione del modello con i tuoi testi, foto, orari e colori</li>
             <li>Un giro di modifiche sull'anteprima (escluso il pacchetto Mini)</li>
             <li>Messa online con il tuo dominio</li>
@@ -164,9 +220,9 @@
             <li>Un documento di consegna con accessi e istruzioni</li>
           </ul>
         </div>
-        <div class="riquadro escluso">
+        <div class="riquadro">
           <h3>Non incluso</h3>
-          <ul>
+          <ul class="crocette">
             <li>Manutenzione e aggiornamenti dopo la consegna (salvo la gestione annuale facoltativa)</li>
             <li>Modifiche successive (si possono chiedere a parte, a pagamento)</li>
             <li>Scrittura dei testi e servizio fotografico: testi e foto li fornisci tu</li>
@@ -174,25 +230,29 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ RINNOVI: DUE STRADE ============ -->
-    <section class="sezione" id="rinnovi">
-      <p class="occhiello">Il sito è tuo</p>
-      <h2>Il sito è tuo. Scegli chi pensa ai rinnovi</h2>
-      <p class="intro">Il dominio (il nome del sito, es. officinarossi.it) è sempre <strong>intestato a te</strong>. Dopo la consegna puoi scegliere tra due strade.</p>
+  <!-- ============ RINNOVI: DUE STRADE ============ -->
+  <section class="sezione" id="rinnovi">
+    <div class="contenitore">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Il sito è tuo</p>
+        <h2>Il sito è tuo. Scegli chi pensa ai rinnovi</h2>
+        <p class="intro">Il dominio (il nome del sito, es. officinarossi.it) è sempre <strong>intestato a te</strong>. Dopo la consegna puoi scegliere tra due strade.</p>
+      </div>
 
-      <div class="due">
+      <div class="due compare">
         <div class="riquadro strada">
           <p class="occhiello">Strada 1</p>
           <h3>Ci pensi tu</h3>
           <div class="prezzo-strada">circa 15 € <span>all'anno, pagati al fornitore</span></div>
-          <ul class="lista-si">
+          <ul class="spunte">
             <li>Paghi il dominio direttamente al fornitore (circa 10–20 € all'anno)</li>
             <li>Hosting gratuito (es. Netlify): costo zero</li>
             <li>Gestisci tu account, password e scadenze</li>
           </ul>
-          <p class="nota piccola">Ideale se hai già dimestichezza con questi servizi. Alla consegna ti spiego tutto passo passo.</p>
+          <p class="tenue piccola">Ideale se hai già dimestichezza con questi servizi. Alla consegna ti spiego tutto passo passo.</p>
         </div>
 
         <!-- MODIFICA: prezzo della gestione annuale -->
@@ -200,42 +260,48 @@
           <p class="occhiello">Strada 2 · Facoltativa</p>
           <h3>Ci penso io</h3>
           <div class="prezzo-strada">90 € <span>all'anno, tutto compreso</span></div>
-          <ul class="lista-si">
+          <ul class="spunte">
             <li>Rinnovo del dominio compreso nel prezzo</li>
             <li>Sito sempre online, niente account da gestire</li>
             <li>Avviso via email 30 giorni prima della scadenza</li>
             <li><strong>Fino a 2 piccoli aggiornamenti all'anno</strong>: orari, telefono, ferie, prezzi</li>
           </ul>
-          <ul class="lista-no">
+          <ul class="crocette">
             <li>Modifiche più grandi (nuove sezioni, nuove pagine): a parte, su richiesta</li>
           </ul>
-          <p class="piccola">Se la gestione non viene rinnovata entro la scadenza, il dominio non viene rinnovato e il sito va offline. Hai sempre tutti i file del sito nell'archivio ZIP che ricevi alla consegna.</p>
+          <p class="tenue piccola">Se la gestione non viene rinnovata entro la scadenza, il dominio non viene rinnovato e il sito va offline. Hai sempre tutti i file del sito nell'archivio ZIP che ricevi alla consegna.</p>
         </div>
       </div>
 
-      <p class="tenue piccola">Email con il tuo dominio (es. info@officinarossi.it): facoltativa in entrambi i casi, con un costo annuale a parte che ti indico prima di iniziare.</p>
-    </section>
+      <p class="tenue piccola note-prezzi">Email con il tuo dominio (es. info@officinarossi.it): facoltativa in entrambi i casi, con un costo annuale a parte che ti indico prima di iniziare.</p>
+    </div>
+  </section>
 
-    <!-- ============ TEMPI ED ESCLUSIVA ============ -->
-    <section class="sezione">
-      <div class="due">
+  <!-- ============ TEMPI ED ESCLUSIVA ============ -->
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="due compare">
         <div class="riquadro">
           <h3>Tempi</h3>
           <!-- MODIFICA: tempi da confermare -->
-          <p>Anteprima pronta entro <strong>7 giorni lavorativi</strong> dal questionario completo. Sito online entro <strong>3 giorni lavorativi</strong> dal saldo.</p>
+          <p class="tenue">Anteprima pronta entro <strong class="oro">7 giorni lavorativi</strong> dal questionario completo. Sito online entro <strong class="oro">3 giorni lavorativi</strong> dal saldo.</p>
         </div>
         <div class="riquadro">
           <h3>Esclusiva nella tua città</h3>
-          <p>Non vendo lo stesso modello a un'altra attività dello stesso tipo nella tua città.</p>
+          <p class="tenue">Non vendo lo stesso modello a un'altra attività dello stesso tipo nella tua città.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ DOMANDE FREQUENTI ============ -->
-    <section class="sezione">
-      <p class="occhiello">Domande frequenti</p>
-      <h2>Prima di chiedere</h2>
-      <div class="riquadro">
+  <!-- ============ DOMANDE FREQUENTI ============ -->
+  <section class="sezione">
+    <div class="contenitore stretto">
+      <div class="sezione-intestazione compare">
+        <p class="occhiello">Domande frequenti</p>
+        <h2>Prima di chiedere</h2>
+      </div>
+      <div class="riquadro faq compare">
         <details>
           <summary>La mia attività non è nell'elenco. Posso comprare lo stesso?</summary>
           <p>Sì. Scegli il modello che ti piace di più: lo adatto alla tua attività cambiando testi, sezioni e foto. Il prezzo resta quello del pacchetto scelto. Non sono incluse funzioni diverse come prenotazioni online o vendita di prodotti.</p>
@@ -269,20 +335,28 @@
           <p>Lavoro solo via email: così tutto resta scritto, niente si perde e ti rispondo con calma e precisione.</p>
         </details>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ CONTATTI ============ -->
-    <section class="sezione" id="contatti">
-      <div class="riquadro evidenza contatto">
+  <!-- ============ CONTATTI ============ -->
+  <section class="sezione" id="contatti">
+    <div class="contenitore">
+      <div class="riquadro contatto bordo-oro compare">
+        <p class="occhiello">Contatti</p>
         <h2>Hai domande?</h2>
         <p>Scrivimi via email indicando il tipo di attività e il modello che ti interessa. Rispondo entro 48 ore lavorative.</p>
-        <p><a class="bottone pieno" href="mailto:giardullo1988@gmail.com?subject=Informazioni%20siti%20web">Scrivimi un'email</a></p>
-        <p class="piccola">giardullo1988@gmail.com</p>
+        <a class="bottone oro" href="mailto:giardullo1988@gmail.com?subject=Informazioni%20siti%20web">Scrivimi un'email</a>
+        <p class="email">giardullo1988@gmail.com</p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer><a href="../index.html">Home</a> · <a href="../privacy-sito.html">Privacy e cookie</a> · © 2026 Fernando Giardullo</footer>
-</div>
+<footer class="piede">
+  <div class="contenitore">
+    <span>© 2026 Fernando Giardullo</span>
+    <span><a href="../index.html">Home</a> · <a href="../privacy-sito.html">Privacy e cookie</a></span>
+  </div>
+</footer>
 </body>
 </html>
